@@ -1,3 +1,3 @@
 # Project-Atlas
 
-Connectibng people
+Connecting people
