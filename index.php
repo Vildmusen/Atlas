@@ -9,6 +9,6 @@
         <script src="assets/js/script.js"></script>
     </head>
     <body>
-       <p> hello there </p>
+       <p> HEJEEE </p>
     </body>
 </html>
