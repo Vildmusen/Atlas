@@ -19,4 +19,15 @@ h1
 
 p {
     color:#352d39;
+
+}
+
+#main{
+    width: 1000px;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -500px;
+    background-color: #6D435A;
+    opacity: 0.7;
 }
