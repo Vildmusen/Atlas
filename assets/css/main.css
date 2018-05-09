@@ -6,7 +6,7 @@ body {
 
 h1
  {
-    font-size: 30px;
+    font-size: 45px;
     font-family:Cambria;
    
 }
@@ -17,21 +17,25 @@ p {
 }
 
 #header {
-    width: 300px;
+    width: 100%;
     height: 80px;
     background: #6D435A;
 }
 
     #logo {
         float: left;
+        width: 200px;
     }
 
     #location{
         float: left;
+        width: 500px;
+
     }
 
     #user_info{
-        float: left;
+        float: right;
+        width: 200px;
     }
 
 #main{
