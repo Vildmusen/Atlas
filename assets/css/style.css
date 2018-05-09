@@ -1,9 +1,18 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url("../img/temp-bg.jpg");
 }
 
 p {
     color: red;
+}
+
+#main{
+    width: 1000px;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -500px;
+    background-color: #6D435A;
+    opacity: 0.7;
 }
