@@ -8,7 +8,11 @@ h1
  {
     font-size: 60px;
     font-family:Cambria;
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> 0dbd488e81ac092eb18f0163cb9ee736e8dd7159
 }
 
 #header {
@@ -30,6 +34,7 @@ p {
     margin-left: -500px;
     background-color: #6D435A;
     opacity: 0.7;
+<<<<<<< HEAD
 }
 
 #registerForm {
@@ -44,3 +49,6 @@ p {
   text-align: center;
   width: 85%;
 }
+=======
+}
+>>>>>>> 0dbd488e81ac092eb18f0163cb9ee736e8dd7159
