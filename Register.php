@@ -4,7 +4,7 @@
   <head>
       <title>Register</title>
       <link rel="stylesheet" href="assets/css/style.css">
-      <meta charset="utf-8">
+      <meta charset="UTF-8">
       <script src="assets/js/script.js"></script>
   </head>
   <body>
