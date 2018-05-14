@@ -8,7 +8,6 @@ h1
  {
     font-size: 30px;
     font-family:Cambria;
-   
 }
 
 p {
@@ -41,4 +40,17 @@ p {
     left: 50%;
     margin-left: -500px;
     background-color: #FF6978;
+}
+
+#registerForm {
+  width: 50%;
+  margin-left: 25%;
+  position: relative;
+}
+
+.Register{
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+  width: 85%;
 }
