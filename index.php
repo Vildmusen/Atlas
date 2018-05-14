@@ -11,11 +11,10 @@
     <body>
         <div id="header">
             <h1>ATLAS</h1>
-            <p> HEJEEEE </p>
         </div>
      
-       <div id="main">
+        <div id="main">
             test
-       </div>
+        </div>
     </body>
 </html>

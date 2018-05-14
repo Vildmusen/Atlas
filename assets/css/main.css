@@ -20,10 +20,11 @@ h2 {
 h3 {
     font-size: 18px;
     margin: 0;
+    color: black;
 }
 
 p {
-    color:#EFF7F6;
+    color: black;
 
 }
 
@@ -73,7 +74,7 @@ p {
     color: #EFF7F6;
 }
 
-    .låda{
+    .comm{
         height: 100px;
         width: 350px;
         background:#EFF7F6;
