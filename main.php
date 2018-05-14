@@ -52,17 +52,19 @@
                 </form>
 
                 <?php
-                    $location = $_POST['location_list'];
-                    $query = "SELECT * FROM topic WHERE location='$location'";
-                    $results = $connection->query($query);
-                    
-                    if ($results->num_rows > 0) {
-                        while ($row = $results->fetch_assoc()) {
-                            echo 
-                                "<div class='comm'>              
-                                    <h3>".$row["title"]."</h3>
-                                    <p>".$row["description"]."</p>
-                                </div>";
+                    if(isset($_POST['location_list'])){
+                        $location = $_POST['location_list'];
+                        $query = "SELECT * FROM topic WHERE location='$location'";
+                        $results = $connection->query($query);
+                        
+                        if ($results->num_rows > 0) {
+                            while ($row = $results->fetch_assoc()) {
+                                echo 
+                                    "<div class='comm'>              
+                                        <h3>".$row["title"]."</h3>
+                                        <p>".$row["description"]."</p>
+                                    </div>";
+                            }
                         }
                     }
 
