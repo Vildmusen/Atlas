@@ -1,9 +1,46 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url("../img/temp-bg.jpg");
+    background: #b1ede8;
+}
+
+h1
+ {
+    font-size: 60px;
+    font-family:Cambria;
+
+}
+
+#header {
+    width: 300px;
+    margin-right:auto;
+    margin-left:auto;
 }
 
 p {
-    color: red;
+    color:#352d39;
+
+}
+
+#main{
+    width: 1000px;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -500px;
+    background-color: #6D435A;
+    opacity: 0.7;
+}
+
+#registerForm {
+  width: 50%;
+  margin-left: 25%;
+  position: relative;
+}
+
+.Register{
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+  width: 85%;
 }
