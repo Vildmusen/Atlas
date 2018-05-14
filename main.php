@@ -54,6 +54,7 @@
                 <?php
                     if(isset($_POST['location_list'])){
                         $location = $_POST['location_list'];
+                        mysqli_set_charset($connection, 'utf8');
                         $query = "SELECT * FROM topic WHERE location='$location'";
                         $results = $connection->query($query);
                         
