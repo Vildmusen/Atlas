@@ -42,12 +42,12 @@
 
                 <div class="vote_wrapper">
                     <div class="arrow_up"></div>
-                    <div class="arrow_down"></div>    
+                    <div class="vote_value"><p>137</p></div>
+                    <div class="arrow_down"></div>
                 </div> 
                 
                 <div class="creator"><h4>Owen</h4></div>
                 <div class="timestamp"><h4>2018-05-17 15:36</h4></div>
-
             </div>
             <div class="topic"></div>
             <div class="topic"></div>
