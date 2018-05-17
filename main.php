@@ -1,28 +1,9 @@
 <!DOCTYPE html>
-<?php 
-    $uname = "root";
-    $pass = "";
-    $host = "localhost";
-    $dbname = "atlas";
 
-    $connection = new mysqli($host, $uname, $pass, $dbname);
-        if ($connection->connect_error) {
-            die("connection failed");
-        }
-?>
 <html>
-    <head>
-
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <title>Projektet my dude</title>
-    
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-        
-        <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-        <script src="assets/js/script.js"></script>
-    </head>
+    <?php 
+        include 'include/bootstrap.php';
+    ?>
     <body>
 
         
@@ -52,42 +33,34 @@
             </div>
         </nav>
 
+        <div class="container" id="topic_wrapper">
+            <div class="topic">
+                <div class="breadtext">    
+                    <h3>hehej</h3>
+                    <p>hallå där!!! qkokokokokok   o1k  o keo1 kok2   qqfk1orohejhej jag gillar katter :D:D:D:D::D:D</p>
+                </div>
 
-                <h2 style="color: black;">Uppsala</h2>
+                <div class="vote_wrapper">
+                    <div class="arrow_up"></div>
+                    <div class="arrow_down"></div>    
+                </div> 
+                
+                <div class="creator"><h4>Owen</h4></div>
+                <div class="timestamp"><h4>2018-05-17 15:36</h4></div>
 
-                <form method="post" action="main.php">
-                    
-                    <select name="location_list" required>
-                    <option value="">BESÖK DIN FAVVOSTAD UUUUU</option>
-                    <?php
-                    $stmt = $connection->query("SELECT * from location");
-                        while($rows = $stmt->fetch_assoc()){
-                            echo "<option value=".$rows['c_id'].">".$rows['city']."</option>";
-                        }
-                    ?>
-                </select>
-                    <input type="submit" name="location"></input>
-                </form>
+            </div>
+            <div class="topic"></div>
+            <div class="topic"></div>
+            <div class="topic"></div>
+            <div class="topic"></div>
+            <div class="topic"></div>
+            <div class="topic"></div>
+            <div class="topic"></div>
 
-                <?php
-                    if(isset($_POST['location_list'])){
-                        $location = $_POST['location_list'];
-                        mysqli_set_charset($connection, 'utf8');
-                        $query = "SELECT * FROM topic WHERE location='$location'";
-                        $results = $connection->query($query);
-                        
-                        if ($results->num_rows > 0) {
-                            while ($row = $results->fetch_assoc()) {
-                                echo 
-                                    "<div class='comm'>              
-                                        <h3>".$row["title"]."</h3>
-                                        <p>".$row["description"]."</p>
-                                    </div>";
-                            }
-                        }
-                    }
+        </div>
 
-                ?>
+
+                
             </div>
        </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -96,3 +69,39 @@
         
     </body>
 </html>
+
+<!-- <h2 style="color: black;">Uppsala</h2>
+
+<form method="post" action="main.php">
+    
+    <select name="location_list" required>
+    <option value="">BESÖK DIN FAVVOSTAD UUUUU</option>
+    /*php
+    $stmt = $connection->query("SELECT * from location");
+        while($rows = $stmt->fetch_assoc()){
+            echo "<option value=".$rows['c_id'].">".$rows['city']."</option>";
+        }
+    ?>
+</select>
+    <input type="submit" name="location"></input>
+</form>
+
+
+    /*if(isset($_POST['location_list'])){
+        $location = $_POST['location_list'];
+        mysqli_set_charset($connection, 'utf8');
+        $query = "SELECT * FROM topic WHERE location='$location'";
+        $results = $connection->query($query);
+        
+        if ($results->num_rows > 0) {
+            while ($row = $results->fetch_assoc()) {
+                echo 
+                    "<div class='comm'>              
+                        <h3>".$row["title"]."</h3>
+                        <p>".$row["description"]."</p>
+                    </div>";
+            }
+        }
+    }
+
+?> -->
