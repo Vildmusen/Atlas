@@ -1,56 +1,9 @@
-body {
-    margin: 0;
-    padding: 0;
-    background: #b1ede8;
-}
-
-h1
- {
-    font-size: 30px;
-    font-family:Cambria;
-}
-
-p {
-    color:#352d39;
+body{
+    background: rgb(227, 240, 239);
+    /* background-image: url(../img/uppsala-skyline.png);
+    background-repeat: no-repeat;
+    background-position: 100% 100%; */
 
 }
 
-#header {
-    width: 300px;
-    height: 80px;
-    background: #6D435A;
-}
 
-    #logo {
-        float: left;
-    }
-
-    #location{
-        float: left;
-    }
-
-    #user_info{
-        float: left;
-    }
-
-#main{
-    width: 1000px;
-    height: 100%;
-    position: absolute;
-    left: 50%;
-    margin-left: -500px;
-    background-color: #FF6978;
-}
-
-#registerForm {
-  width: 50%;
-  margin-left: 25%;
-  position: relative;
-}
-
-.Register{
-  padding: 5px;
-  margin: 10px;
-  text-align: center;
-  width: 85%;
-}

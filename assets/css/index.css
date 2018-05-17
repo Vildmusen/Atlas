@@ -1,0 +1,32 @@
+#wrapper{
+    width: 40%;
+    min-width: 330px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#welcome_box{
+    width: 100%;
+    border-radius: 5px;
+    background: rgb(151, 190, 187);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-block{
+    width: 47%;
+    margin: 1.5%;
+    float: left;
+    background: rgb(95, 139, 136);
+}
+
+.btn-block:hover{
+    background: rgb(151, 190, 187);
+}
+
+#center_button{
+    width: 97%;
+}
+
