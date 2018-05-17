@@ -31,35 +31,26 @@
             }
         
         .vote_wrapper {
-            width: 20%;
+            width: 8%;
             height: 90px;
-            padding: 5px;
-            float: left;
+            padding-top: 10px;
+            float: right;
         }
 
             .arrow_up {
                 height: 30%;
-                margin: 3px;
                 background-image: url("../img/arrowdown.png");
-                transform: rotate(178deg);
                 background-size: contain;
                 background-repeat: no-repeat;
             }
 
-            .vote_value {
-                width: 100%;
-                height: 40%;
+            .vote_value p {
+                margin: 0;
             }
-
-               .vote_value p {
-                   float: right;
-               } 
 
             .arrow_down {
                 height: 30%;
-                margin-left: 80%;
                 background-image: url("../img/arrowdown.png");
-                transform: rotate(-2deg);
                 background-size: contain;
                 background-repeat: no-repeat;
 
