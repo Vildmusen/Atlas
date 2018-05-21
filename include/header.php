@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/topic.css">
 
     <link rel="icon" type="image/png" href="assets/img/faviconoriginal.jpg" sizes="32x32" />
 

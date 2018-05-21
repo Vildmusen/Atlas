@@ -5,8 +5,10 @@ include 'include/bootstrap.php';
 //     header("Location: index.php");
 // }
 
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT);
 $stmt = getcomments();
-$id = $_GET["t_id"];
+$id = $_GET["id"];
 ?>
 
 <html>
@@ -40,50 +42,53 @@ $id = $_GET["t_id"];
         <?php
         echo '<label>[</label><a href="thread.php?id='.$id.'#bottomOfPage" class="likeabutton">Bottom</a><label>]</label>';
         ?>
-        <div id="flow">
+        <div id="topic_wrapper">
             <?php
                 while($rows = $stmt->fetch_assoc()){
                     if ($rows["parent"] == $id){
                         if ($rows["parent"] == $rows["t_id"]){
-                            echo '<div class="flowparent"><label>'.$rows["title"]."</label> ".$rows["mail"]." (".$rows["date"].") No.";
+                            echo '<div class="topic"><div class="breadtext>"<h3>'.$rows["title"]."</h3> (".$rows["date"].") No.";
                             echo '<a href="javascript:addToComment('.$rows["t_id"].');" name="'.$rows["t_id"].'" class="liketext" >'.$rows["t_id"].'</a>';
                         } else {
-                            echo '<div class="flowchild"><input type="checkbox" class= "check" name="'.$rows["t_id"].'"/> ';
-                            echo $rows["name"]." ".$rows["mail"]." (".$rows["date"].") No.";
+                            echo '<div class="comment"><input type="checkbox" class= "check" name="'.$rows["t_id"].'"/> ';
+                            echo " (".$rows["date"].") No.";
                             echo '<a href="javascript:addToComment('.$rows["t_id"].');" name="'.$rows["t_id"].'" class="liketext" >'.$rows["t_id"].'</a>';
                         }
                         echo '<div class="innerchild"><pre>'.$rows["description"].'</pre></div>';
-                        echo '</div>';
+                        echo '</div></div>';
                         echo '<div class="vote_wrapper"><div class="arrow_up"></div><div class="vote_value"><p>137</p></div><div class="arrow_down"></div></div>';
                         echo '<div class="creator"><h4>'.getuser($rows["poster_id"]).'</h4></div>';
                         echo '<div class="timestamp"><h4>'.$rows["date"].'</h4></div>';
                     }
                 }
             ?>
+            <div id="form">
+                <label id="reply">Reply to thread</label>
+                <?php
+                echo $id;
+                echo '<form name="commForm" action="process.php?id='.$id.'" method="post" onsubmit="return validateForm()">';
+                ?>
+                    <?php
+                    if(isset($_SESSION["mail"])){
+                        echo 'Mail: <input type="hidden" class="fields" name="mail" value="'.$_SESSION['mail'].'">'.$_SESSION['mail'].'</input><br>';
+                    } else {
+                        echo '<input type="email" class="fields" name="mail" placeholder="Mail..." required pattern=".*[@].*[.].*"><br>';
+                    }
+                    ?>
+                    <input type="text" id="field-name" class="fields" name="name" placeholder="Name..." required><br>
+                    <textarea rows="10" id="field-text" cols="30" wrap="soft" class="fields" name="text" placeholder="Text..." required></textarea><br>
+                    <input type="submit" id="send-button" value="Send">
+                    <label id="err">Fields cannot be empty!</label>
+                    <input type="hidden" name="type" value="comment"/>
+                </form>
+            </div>
+            <?php
+            echo '<label>[</label><a href="thread.php?id='.$id.'#topOfPage" class="likeabutton">Top</a><label>]</label>';
+            ?>
+
+
         </div>
         <a name="bottomOfPage"></a>
-        <div id="form">
-            <label id="reply">Reply to thread</label>
-            <?php
-            echo $id;
-            echo '<form name="commForm" action="process.php?id='.$id.'" method="post" onsubmit="return validateForm()">';
-            ?>
-                <?php
-                if(isset($_SESSION["mail"])){
-                    echo 'Mail: <input type="hidden" class="fields" name="mail" value="'.$_SESSION['mail'].'">'.$_SESSION['mail'].'</input><br>';
-                } else {
-                    echo '<input type="email" class="fields" name="mail" placeholder="Mail..." required pattern=".*[@].*[.].*"><br>';
-                }
-                ?>
-                <input type="text" id="field-name" class="fields" name="name" placeholder="Name..." required><br>
-                <textarea rows="10" id="field-text" cols="30" wrap="soft" class="fields" name="text" placeholder="Text..." required></textarea><br>
-                <input type="submit" id="send-button" value="Send">
-                <label id="err">Fields cannot be empty!</label>
-                <input type="hidden" name="type" value="comment"/>
-            </form>
-        </div>
-        <?php
-        echo '<label>[</label><a href="thread.php?id='.$id.'#topOfPage" class="likeabutton">Top</a><label>]</label>';
-        ?>
+
     </body>
 </html>

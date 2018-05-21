@@ -14,13 +14,13 @@ function connect(){
 }
 function getcomments(){
     $sql = "SELECT * FROM topic";
-    $result = connect()->$sql;
+    $result = connect()->query($sql);
     return $result;
 }
 function getuser($id){
     $sql = "SELECT name FROM user WHERE u_id='".$id."'";
-    $result = connect()->$sql;
-    $user = $result-fetch_assoc();
+    $result = connect()->query($sql);
+    $user = $result->fetch_assoc();
     return $user["name"];
 }
 ?>
