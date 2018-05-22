@@ -17,12 +17,15 @@ if (!verify($assoc)){
         if ( $_POST['mail'] == $rows['mail']){
             $login_hash = $rows['hash_pass'];
             $login_salt = $rows['salt'];
+            $id = $rows['u_id'];
+            $name = $rows['name'];
             $bool = true;
         }
     }
     if ($bool == true){
         if (sha1($_POST['pass'].$login_salt) === $login_hash){
-            $_SESSION["u_id"] = $_POST['u_id'];
+            $_SESSION["u_id"] = $id;
+            $_SESSION["name"] = $name;
             echo '<h1>Logged in, redirecting...</h1>';
             header("Refresh: 2, URL=index.php");
         } else {
