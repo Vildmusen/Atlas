@@ -6,6 +6,12 @@ include 'include/bootstrap.php';
 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
+
+if (isset($_GET['c_id'])){
+    $location = $_GET['c_id'];
+} else {
+    $location = 1;
+}
 ?>
 <body>
 
@@ -32,8 +38,6 @@ error_reporting(E_ALL | E_STRICT);
             <div id="location_wrapper">
                 <div id="location_name">
                     <?php
-
-                    $location = $_GET['c_id'];
                     $city = getcity($location);
                     echo "<h2>".$city['city']."</h2>";
 
@@ -45,6 +49,13 @@ error_reporting(E_ALL | E_STRICT);
             </div>
 
         </div>
+        <?php
+            if (isset($_SESSION["u_id"])){
+                echo '<div class="navbar-brand">
+                        Välkommen '.$_SESSION["name"].', <a class="nav-item active" href="logout.php">Logga ut</a>?
+                    </div>';
+            }
+        ?>
     </nav>
 
     <div id="location_list">
@@ -59,10 +70,9 @@ error_reporting(E_ALL | E_STRICT);
     <div class="container" id="topic_wrapper">
 
         <?php
-        $location = $_GET['c_id'];
         $results = gettopics($location);
 
-        if ($results->num_rows > 0) {
+        if ($results['c_id'] > 0) {
             while ($row = $results->fetch_assoc()) {
                 // if($row['t_id'] == $row['parent'])
                 echo
