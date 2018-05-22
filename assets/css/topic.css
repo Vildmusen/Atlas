@@ -22,47 +22,47 @@
         background:rgb(151, 170, 187);
         border-radius: 5px;
     }
-        .breadtext {
+        .breadtext_topic {
             width:80%;
             height:90px;
             float:left;
         }
-            .breadtext h3 {
+            .breadtext_topic h3 {
                 padding: 10px 0 0 10px;
                 margin:0;
                 font-size: 22px;
             }
 
-            .breadtext p {
+            .breadtext_topic p {
                 padding: 10px 0 0 15px;
                 font-size: 13px;
             }
-            .breadtext pre {
+            .breadtext_topic pre {
                 padding: 10px 0 0 15px;
                 font-size: 13px;
             }
 
 
 
-        .vote_wrapper {
+        .vote_wrapper_topic {
             width: 8%;
             height: 90px;
             padding-top: 10px;
             float: right;
         }
 
-            .arrow_up {
+            .arrow_up_topic {
                 height: 30%;
                 background-image: url("../img/arrowdown.png");
                 background-size: contain;
                 background-repeat: no-repeat;
             }
 
-            .vote_value p {
+            .vote_value_topic p {
                 margin: 0;
             }
 
-            .arrow_down {
+            .arrow_down_topic {
                 height: 30%;
                 background-image: url("../img/arrowdown.png");
                 background-size: contain;
@@ -70,27 +70,27 @@
 
             }
 
-        .creator {
+        .creator_topic {
             width:70%;
             height:30px;
             float:left;
         }
 
-            .creator h4 {
+            .creator_topic h4 {
                 font-size:12px;
                 margin:0;
                 padding:7px 10px 5px;
                 font-weight:400;
             }
 
-        .timestamp {
+        .timestamp_topic {
             width:30%;
             height:30px;
             float:left;
             text-align:right;
         }
 
-            .timestamp h4 {
+            .timestamp_topic h4 {
                 font-size:12px;
                 margin:0;
                 padding:7px 10px 5px;

@@ -3,6 +3,8 @@
 <html>
     <?php
         include 'include/bootstrap.php';
+        ini_set('display_errors', 'On');
+        error_reporting(E_ALL | E_STRICT);
     ?>
     <body>
 
@@ -31,10 +33,9 @@
                     <?php
 
                         $location = $_GET['c_id'];
-                        $stmt = $connection->query("SELECT city from location WHERE c_id = '$location'");
-                        $row = $stmt->fetch_assoc();
+                        $city = getcity($location);
+                        echo "<h2>".$city['city']."</h2>";
 
-                        echo "<h2>".$row['city']."</h2>";
                     ?>
                     </div>
                     <div id="location_dropdown">
@@ -47,8 +48,8 @@
 
         <div id="location_list">
             <?php
-                $stmt = $connection->query("SELECT * from location");
-                    while($rows = $stmt->fetch_assoc()){
+                $results = getallcities();
+                    while($rows = $results->fetch_assoc()){
                         echo "<a href='main.php?c_id=".$rows['c_id']."' class='dropdown-item'>".$rows['city']."</a>";
                     }
             ?>
@@ -58,8 +59,7 @@
             
         <?php
             $location = $_GET['c_id'];
-            $query = "SELECT * FROM topic WHERE location='$location'";
-            $results = $connection->query($query);
+            $results = gettopics($location);
 
             if ($results->num_rows > 0) {
                 while ($row = $results->fetch_assoc()) {
