@@ -20,11 +20,6 @@
                 </li>
             </ul>
         </div>
-        <?php
-        if (isset($_SESSION["u_id"])){
-            echo '<h2>'.$_SESSION["u_id"].'</h2>';
-        }
-        ?>
     </nav>
     <main role="main" class="container" id="wrapper">
 

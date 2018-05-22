@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 'On');
-error_reporting(E_ALL | E_STRICT);
-
 include 'include/bootstrap.php';
 if(isset($_SESSION["u_id"])){
     header("Location: index.php");
@@ -19,6 +16,7 @@ if (!verify($assoc)){
             $login_salt = $rows['salt'];
             $id = $rows['u_id'];
             $name = $rows['name'];
+            $town = $rows['hometown'];
             $bool = true;
         }
     }
@@ -27,7 +25,7 @@ if (!verify($assoc)){
             $_SESSION["u_id"] = $id;
             $_SESSION["name"] = $name;
             echo '<h1>Logged in, redirecting...</h1>';
-            header("Refresh: 2, URL=index.php");
+            header("Refresh: 2, URL=main.php?c_id=".$town);
         } else {
             echo '<h1>Wrong password.</h1>';
             header("Refresh: 2, URL=login.php");

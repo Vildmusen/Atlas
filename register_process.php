@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 'On');
-error_reporting(E_ALL | E_STRICT);
-
 include 'include/bootstrap.php';
 if(isset($_SESSION["u_id"])){
     header("Location: index.php");

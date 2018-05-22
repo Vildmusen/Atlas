@@ -40,8 +40,7 @@ function getuser($id=""){
     } else {
         $sql = "SELECT name FROM user WHERE u_id='".$id."'";
         $result = connect()->query($sql);
-        $user = $result->fetch_assoc();
-        return $user["name"];
+        return $result->fetch_assoc();
     }
 }
 function gettopics($location){
