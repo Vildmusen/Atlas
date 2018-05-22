@@ -1,0 +1,99 @@
+#topic_wrapper {
+    width:800px;
+    margin-top:56px;
+    padding-top:10px;
+}
+
+    .topic {
+        min-width: 500px;
+        max-width: 700px;
+        width: 80%;
+        height:120px;
+        margin: 20px auto 10px auto;
+        background:rgb(151, 190, 187);
+        border-radius: 5px;
+    }
+    .comment {
+        min-width: 500px;
+        max-width: 700px;
+        width: 80%;
+        height:120px;
+        margin: 20px auto 10px auto;
+        background:rgb(151, 170, 187);
+        border-radius: 5px;
+    }
+        .breadtext {
+            width:80%;
+            height:90px;
+            float:left;
+        }
+            .breadtext h3 {
+                padding: 10px 0 0 10px;
+                margin:0;
+                font-size: 22px;
+            }
+
+            .breadtext p {
+                padding: 10px 0 0 15px;
+                font-size: 13px;
+            }
+            .breadtext pre {
+                padding: 10px 0 0 15px;
+                font-size: 13px;
+            }
+
+
+
+        .vote_wrapper {
+            width: 8%;
+            height: 90px;
+            padding-top: 10px;
+            float: right;
+        }
+
+            .arrow_up {
+                height: 30%;
+                background-image: url("../img/arrowdown.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+
+            .vote_value p {
+                margin: 0;
+            }
+
+            .arrow_down {
+                height: 30%;
+                background-image: url("../img/arrowdown.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+
+            }
+
+        .creator {
+            width:70%;
+            height:30px;
+            float:left;
+        }
+
+            .creator h4 {
+                font-size:12px;
+                margin:0;
+                padding:7px 10px 5px;
+                font-weight:400;
+            }
+
+        .timestamp {
+            width:30%;
+            height:30px;
+            float:left;
+            text-align:right;
+        }
+
+            .timestamp h4 {
+                font-size:12px;
+                margin:0;
+                padding:7px 10px 5px;
+                font-weight:400;
+                opacity:0.7;
+            }
