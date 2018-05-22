@@ -1,0 +1,33 @@
+#content{
+    width: 70%;
+    min-width: 330px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#about_box{
+    height:300px;
+    width: 100%;
+    border-radius: 5px;
+    background: rgb(151, 190, 187);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#terms_cons {
+    margin-left:300px;
+    width: 40%        
+}
+
+#terms_cons a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: rgb(95, 139, 136);
+}
+
+#terms_cons a:hover {
+
+    color: rgb(151, 190, 187);
+}
