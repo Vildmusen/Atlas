@@ -25,7 +25,7 @@
             <h2>Logga in:</h2>
         </div>
 
-        <div class="conatiner" id="link_box">
+        <div class="conatiner" id="welcome_box">
             <form name="regForm" action="login_process.php" method="post" onsubmit="return validateLogin()">
                 <input type="email" class="new-forms" name="mail" placeholder="Mail..." required pattern=".*[@].*[.].*"><br>
                 <input type="password" id="passval" class="new-forms" name="pass" placeholder="Password..." required><br>
