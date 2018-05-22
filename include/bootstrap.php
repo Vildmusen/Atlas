@@ -1,5 +1,5 @@
 <?php
+    include 'include/views/header.php';
+    include 'include/models/db.php';
     session_start();
-    include 'include/header.php';
-    include 'include/db.php';
 ?>
