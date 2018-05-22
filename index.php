@@ -24,9 +24,12 @@ include 'include/bootstrap.php';
                 </li>
             </ul>
         </div>
+        <!-- Behöver styleaaas -->
         <?php
             if (isset($_SESSION["u_id"])){
-                echo '<h2>'.$_SESSION["u_id"].'</h2>';
+                echo '<div class="navbar-brand">
+                        Välkommen '.$_SESSION["name"].', <a class="nav-item active" href="logout.php">Logga ut</a>?
+                    </div>';
             }
         ?>
     </nav>

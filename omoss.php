@@ -7,7 +7,7 @@ include 'include/bootstrap.php';
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 
-        <a class="navbar-brand" href="#">Atlas</a>
+        <a class="navbar-brand" href="index.php">Atlas</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -15,7 +15,7 @@ include 'include/bootstrap.php';
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">Hem </a>
+                    <a class="nav-link" href="index.php">Hem </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="main.php">Utforska</a>
@@ -25,6 +25,13 @@ include 'include/bootstrap.php';
                 </li>
             </ul>
         </div>
+        <?php
+        if (isset($_SESSION["u_id"])){
+            echo '<div class="navbar-brand">
+            Välkommen '.$_SESSION["name"].', <a class="nav-item active" href="logout.php">Logga ut</a>?
+            </div>';
+        }
+        ?>
     </nav>
 </body>
 </html>
