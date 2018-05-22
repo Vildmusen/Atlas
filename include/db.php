@@ -1,7 +1,7 @@
 <?php
 function connect(){
     $uname = "root";
-    $pass = "root";
+    $pass = "";
     $host = "localhost";
     $dbname = "atlas";
 
@@ -10,6 +10,8 @@ function connect(){
     if ($connection->connect_error) {
         die("connection failed");
     }
+
+    $connection->set_charset("utf8");
     return $connection;
 }
 function getcomments(){
@@ -22,5 +24,17 @@ function getuser($id){
     $result = connect()->query($sql);
     $user = $result->fetch_assoc();
     return $user["name"];
+}
+function gettopics($location){
+    $query = "SELECT * FROM topic WHERE location='$location'";
+    return connect()->query($query);
+}
+function getcity($location){
+    $sql = "SELECT city FROM location WHERE c_id = '".$location."'";
+    $result = connect()->query($sql);
+    return $result->fetch_assoc();
+}
+function getallcities(){
+    return connect()->query("SELECT * from location");
 }
 ?>

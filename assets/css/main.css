@@ -1,14 +1,79 @@
+#location_wrapper{
+    position: absolute;
+    left: 50%;
+    width: 400px;
+    margin-left: -200px;
+}
+
+    #location_name{
+        width: 280px;
+        position: relative;
+        left: 50%;
+        margin-left: -140px;
+        text-align: center;
+        color: #fff;
+        float: left;
+    }
+
+    #location_dropdown{
+        width: 60px;
+        position: relative;
+        left: 100%;
+        margin-left: -60px;
+    }
+
+    #location_button{
+        height: 45px;
+        width: 45px;
+        background-image: url("../img/dropdown_arrow.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    #location_button:hover {
+        margin-top: 1px;
+        margin-left: 1px;
+        height: 43px;
+        widows: 43px;
+        cursor: pointer;
+    }
+
+        .dropdown-item:hover {
+            color: #fff;
+            background: #343a40;
+        }
+
+
 #topic_wrapper {
     width:800px;
     margin-top:56px;
     padding-top:10px;
 }
+       
+    #location_list{
+        display: none;
+        width: 398px;
+        margin-left: -200px;
+        position: fixed;
+        top: 56px;
+        left: 50%;
+        border: 1px solid #343a40;
+        border-top: 0;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px; 
+        background:rgb(151, 190, 187);
+        z-index: 10;
+    }
+
+    #topic_link {
+        color: inherit;
+    }
 
     .topic {
         min-width: 500px;
         max-width: 700px;
         width: 80%;
-        height:120px;
+        height: 120px;
         margin: 20px auto 10px auto;
         background:rgb(151, 190, 187);
         border-radius: 5px;
@@ -29,17 +94,23 @@
                 padding: 10px 0 0 15px;
                 font-size: 13px;
             }
-        
+
         .vote_wrapper {
             width: 8%;
             height: 90px;
             padding-top: 10px;
+            text-align: center;
             float: right;
         }
 
             .arrow_up {
-                height: 30%;
-                background-image: url("../img/arrowdown.png");
+                position: relative;
+                left: 50%;
+                margin-left: -12px;
+                height: 27px;
+                width: 27px;
+                background-image: url("../img/dropdown_arrow.png");
+                transform: rotate(180deg);
                 background-size: contain;
                 background-repeat: no-repeat;
             }
@@ -49,39 +120,59 @@
             }
 
             .arrow_down {
-                height: 30%;
-                background-image: url("../img/arrowdown.png");
+                position: relative;
+                left: 50%;
+                margin-left: -13.5px;
+                height: 27px;
+                width: 27px;
+                background-image: url("../img/dropdown_arrow.png");
                 background-size: contain;
                 background-repeat: no-repeat;
 
             }
 
         .creator {
-            width:70%;
+            width:40%;
             height:30px;
             float:left;
         }
 
-            .creator h4 {
-                font-size:12px;
-                margin:0;
-                padding:7px 10px 5px;
-                font-weight:400;
+        .comment_holder {
+            width: 10%;         
+            height: 30px;
+            float: left;
+        }
+
+            .comment_icon {
+                width: 25px;
+                height: 25px;
+                margin-top: 5px;
+                margin-right: 5px;
+                background-image: url("../img/comment_icon.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                opacity: 0.6;
+                float: right;
             }
-        
+
+        .report_field {
+            width: 25%;
+            height: 30px;
+            float: left;
+            text-align: right;
+        }
+
         .timestamp {
-            width:30%;
+            width:25%;
             height:30px;
             float:left;
             text-align:right;
         }
 
-            .timestamp h4 {
+            .timestamp h4, .creator h4, .comment_holder h4, .report_field h4 {
                 font-size:12px;
                 margin:0;
                 padding:7px 10px 5px;
                 font-weight:400;
                 opacity:0.7;
             }
-
-    
