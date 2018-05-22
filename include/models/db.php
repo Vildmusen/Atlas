@@ -1,7 +1,7 @@
 <?php
 function connect(){
     $uname = "root";
-    $pass = "root";
+    $pass = "";
     $host = "localhost";
     $dbname = "atlas";
 
@@ -19,11 +19,17 @@ function getcomments(){
     $result = connect()->query($sql);
     return $result;
 }
-function getuser($id){
-    $sql = "SELECT name FROM user WHERE u_id='".$id."'";
-    $result = connect()->query($sql);
-    $user = $result->fetch_assoc();
-    return $user["name"];
+function getuser($id=""){
+    if ($id == ""){
+        $sql = "SELECT * FROM user";
+        $result = connect()->query($sql);
+        return $result;
+    } else {
+        $sql = "SELECT name FROM user WHERE u_id='".$id."'";
+        $result = connect()->query($sql);
+        $user = $result->fetch_assoc();
+        return $user["name"];
+    }
 }
 function gettopics($location){
     $query = "SELECT * FROM topic WHERE location='$location'";
