@@ -10,3 +10,9 @@ function show_list() {
     }
 
 }
+
+// $(document).ready(function(){
+//     $("#location_button").click(function(){
+//         $("dropdown_list").show();
+//     });
+// });

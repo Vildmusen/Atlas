@@ -65,12 +65,13 @@
                 while ($row = $results->fetch_assoc()) {
                     // if($row['t_id'] == $row['parent'])
                     echo
-                        '<a href="topic.php?id='.$row['t_id'].'" id="topic_link"><div class="topic">
-                            <div class="breadtext">
-                                <h3> '.$row['title'].'</h3>
-                                <p> '.$row['description'].'</p>
-                            </div>
-
+                        '<div class="topic">
+                            <a href="topic.php?id='.$row['t_id'].'" id="topic_link">
+                                <div class="breadtext">
+                                    <h3> '.$row['title'].'</h3>
+                                    <p> '.$row['description'].'</p>
+                                </div>
+                            </a>
                             <div class="vote_wrapper">
                                 <div class="arrow_up"></div>
                                 <div class="vote_value"><p>'.$row['vote_value'].'</p></div>
@@ -78,8 +79,10 @@
                             </div>
 
                             <div class="creator"><h4>'.$row['u_id'].'</h4></div>
+                            <div class="comment_holder"><div class="comment_icon"></div><h4>4</h4></div>
+                            <div class="report_field"><h4>report</h4></div>
                             <div class="timestamp"><h4>'.$row['timestamp'].'</h4></div>
-                        </div></a>';
+                        </div>';
                 }
             }
         ?>
