@@ -1,7 +1,7 @@
 <?php
 function connect(){
     $uname = "root";
-    $pass = "";
+    $pass = "root";
     $host = "localhost";
     $dbname = "atlas";
 
