@@ -14,6 +14,19 @@ function connect(){
     $connection->set_charset("utf8");
     return $connection;
 }
+function makeUser($salt){
+    $connection = connect();
+    $hashed_pass = sha1($_POST["pass"].$salt);
+    $name = mysqli_real_escape_string($connection, $_POST["name"]);
+    $mail = mysqli_real_escape_string($connection, $_POST["mail"]);
+    $city = mysqli_real_escape_string($connection, $_POST["city"]); //behövs detta?
+    $status = 0;
+
+    $sql = "INSERT INTO user (name, mail, hash_pass, salt, hometown, status)
+    VALUES ('$name', '$mail', '$hashed_pass', '$salt', '$city', '$status') ";
+    $stmt = $connection->query($sql);
+    return $stmt;
+}
 function getcomments(){
     $sql = "SELECT * FROM topic";
     $result = connect()->query($sql);

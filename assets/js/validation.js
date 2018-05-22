@@ -9,8 +9,15 @@ function validateForm() {
 }
 function validateRegister(){
     var pass = document.getElementById("passval").value;
+    var pass2 = document.getElementById("passval2").value;
+    var city = document.getElementById("cityselect").value;
     var err  = document.getElementById("err");
 
+    if (pass != pass2) {
+        err.innerHTML = "Passwords don't match!";
+        err.style.display = "block";
+        return false;
+    }
     if (pass.length < 8) {
         err.innerHTML = "Password too short!";
         err.style.display = "block";
