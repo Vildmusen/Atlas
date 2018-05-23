@@ -72,7 +72,7 @@ if (isset($_GET['c_id'])){
         <?php
         $results = getpost($location);
         while ($row = $results->fetch_assoc()) {
-            // if($row['t_id'] == $row['parent'])
+             if($row['p_id'] == $row['parent_id']){
             echo
             '<div class="topic">
             <a href="topic.php?id='.$row['parent_id'].'" id="topic_link">
@@ -92,6 +92,7 @@ if (isset($_GET['c_id'])){
             <div class="report_field"><h4>report</h4></div>
             <div class="timestamp"><h4>'.$row['date'].'</h4></div>
             </div>';
+          }
         }
         ?>
 

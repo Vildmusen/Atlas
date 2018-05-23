@@ -44,45 +44,70 @@ $id = $_GET["id"];
     <?php
     echo '<label>[</label><a href="topic.php?id='.$id.'#bottomOfPage" class="likeabutton">Bottom</a><label>]</label>';
     ?>
-    <div id="topic_wrapper">
+    <div class="container" id="topic_wrapper">
         <?php
         while($rows = $stmt->fetch_assoc()){
             if ($rows["parent_id"] == $id){
                 if ($rows["parent_id"] == $rows["p_id"]){
                     $location = $rows["l_id"];
-                    echo '<div class="topic"><div class="breadtext>"<h3>'.$rows["title"]."</h3> (".$rows["date"].") No.";
-                    echo '<a href="javascript:addToComment('.$rows["p_id"].');" name="'.$rows["p_id"].'" class="liketext" >'.$rows["p_id"].'</a>';
+                    echo
+                    '<div class="topic">
+                    <div class="breadtext">
+                    <h3> '.$rows['title'].'</h3>
+                    <p> '.$rows['description'].'</p>
+                    </div>
+                    </a>
+                    <div class="vote_wrapper">
+                    <div class="arrow_up"></div>
+                    <div class="vote_value"><p>'.$rows['rating'].'</p></div>
+                    <div class="arrow_down"></div>
+                    </div>
+
+                    <div class="creator"><h4>'.$rows['u_id'].'</h4></div>
+                    <div class="report_field"><h4>report</h4></div>
+                    <div class="timestamp"><h4>'.$rows['date'].'</h4></div>
+                    </div>';
+
                 } else {
-                    echo '<div class="comment"><input type="checkbox" class= "check" name="'.$rows["p_id"].'"/> ';
-                    echo " (".$rows["date"].") No.";
-                    echo '<a href="javascript:addToComment('.$rows["p_id"].');" name="'.$rows["p_id"].'" class="liketext" >'.$rows["p_id"].'</a>';
+                    echo '<div class="comment">
+                    <div class="breadtext">
+                    <h3> '.$rows['title'].'</h3>
+                    <p> '.$rows['description'].'</p>
+                    </div>
+                    <div class="vote_wrapper">
+                    <div class="arrow_up"></div>
+                    <div class="vote_value"><p>'.$rows['rating'].'</p></div>
+                    <div class="arrow_down"></div>
+                    </div>
+
+                    <div class="creator"><h4>'.$rows['u_id'].'</h4></div>
+                    <div class="report_field"><h4>report</h4></div>
+                    <div class="timestamp"><h4>'.$rows['date'].'</h4></div>
+                    </div>';
+
                 }
-                echo '<div class="innerchild"><pre>'.$rows["description"].'</pre></div>';
-                echo '</div></div>';
-                echo '<div class="vote_wrapper"><div class="arrow_up"></div><div class="vote_value"><p>137</p></div><div class="arrow_down"></div></div>';
-                echo '<div class="creator"><h4>'.getuser($rows["u_id"])["name"].'</h4></div>';
-                echo '<div class="timestamp"><h4>'.$rows["date"].'</h4></div>';
+
             }
         }
         ?>
-        <?php
-        if (isset($_SESSION["u_id"])){
-            echo
-            '<div id="form">
-                <label id="reply">Svara</label>
-                <form name="commForm" action="process.php?id='.$id.'" method="post" onsubmit="return validateForm()">
-                    <input type="text" id="field-title" class="fields" name="title" placeholder="Titel" required><br>
-                    <textarea rows="10" id="field-text" cols="30" wrap="soft" class="fields" name="description" placeholder="Text..." required></textarea><br>
-                    <input type="submit" id="send-button" value="Send">
-                    <label id="err">Fields cannot be empty!</label>
-                    <input type="hidden" name="type" value="comment"/>
-                    <input type="hidden" name="loc" value="'.$location.'"/>
-                </form>
-            </div>';
-        }
-        echo '<label>[</label><a href="topic.php?id='.$id.'#topOfPage" class="likeabutton">Top</a><label>]</label>';
-        ?>
     </div>
+    <?php
+    if (isset($_SESSION["u_id"])){
+        echo
+        '<div id="form">
+            <label id="reply">Svara</label>
+            <form name="commForm" action="process.php?id='.$id.'" method="post" onsubmit="return validateForm()">
+                <input type="text" id="field-title" class="fields" name="title" placeholder="Titel" required><br>
+                <textarea rows="10" id="field-text" cols="30" wrap="soft" class="fields" name="description" placeholder="Text..." required></textarea><br>
+                <input type="submit" id="send-button" value="Send">
+                <label id="err">Fields cannot be empty!</label>
+                <input type="hidden" name="type" value="comment"/>
+                <input type="hidden" name="loc" value="'.$location.'"/>
+            </form>
+        </div>';
+    }
+    echo '<label>[</label><a href="topic.php?id='.$id.'#topOfPage" class="likeabutton">Top</a><label>]</label>';
+    ?>
     <a name="bottomOfPage"></a>
 </body>
 </html>
