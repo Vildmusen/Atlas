@@ -71,30 +71,27 @@ if (isset($_GET['c_id'])){
 
         <?php
         $results = getpost($location);
+        while ($row = $results->fetch_assoc()) {
+            // if($row['t_id'] == $row['parent'])
+            echo
+            '<div class="topic">
+            <a href="topic.php?id='.$row['parent_id'].'" id="topic_link">
+            <div class="breadtext">
+            <h3> '.$row['title'].'</h3>
+            <p> '.$row['description'].'</p>
+            </div>
+            </a>
+            <div class="vote_wrapper">
+            <div class="arrow_up"></div>
+            <div class="vote_value"><p>'.$row['rating'].'</p></div>
+            <div class="arrow_down"></div>
+            </div>
 
-        if ($results['p_id'] > 0) {
-            while ($row = $results->fetch_assoc()) {
-                // if($row['t_id'] == $row['parent'])
-                echo
-                '<div class="topic">
-                <a href="topic.php?id='.$row['parent_id'].'" id="topic_link">
-                <div class="breadtext">
-                <h3> '.$row['title'].'</h3>
-                <p> '.$row['description'].'</p>
-                </div>
-                </a>
-                <div class="vote_wrapper">
-                <div class="arrow_up"></div>
-                <div class="vote_value"><p>'.$row['rating'].'</p></div>
-                <div class="arrow_down"></div>
-                </div>
-
-                <div class="creator"><h4>'.$row['u_id'].'</h4></div>
-                <div class="comment_holder"><div class="comment_icon"></div><h4>4</h4></div>
-                <div class="report_field"><h4>report</h4></div>
-                <div class="timestamp"><h4>'.$row['date'].'</h4></div>
-                </div>';
-            }
+            <div class="creator"><h4>'.$row['u_id'].'</h4></div>
+            <div class="comment_holder"><div class="comment_icon"></div><h4>4</h4></div>
+            <div class="report_field"><h4>report</h4></div>
+            <div class="timestamp"><h4>'.$row['date'].'</h4></div>
+            </div>';
         }
         ?>
 
