@@ -43,8 +43,8 @@ function getuser($id=""){
         return $result->fetch_assoc();
     }
 }
-function gettopics($location){
-    $query = "SELECT * FROM topic WHERE location='$location'";
+function getpost($location){
+    $query = "SELECT * FROM post WHERE l_id='$location'";
     return connect()->query($query);
 }
 function getcity($location=""){
