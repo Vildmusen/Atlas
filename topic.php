@@ -70,13 +70,14 @@ $id = $_GET["id"];
             echo
             '<div id="form">
                 <label id="reply">Svara</label>
-                <form name="commForm" action="process.php?id='.$id.'" method="post" onsubmit="return validateForm()">
+                <form name="commForm" action="process.php" method="post" onsubmit="return validateForm()">
                     <input type="text" id="field-title" class="fields" name="title" placeholder="Titel" required><br>
                     <textarea rows="10" id="field-text" cols="30" wrap="soft" class="fields" name="description" placeholder="Text..." required></textarea><br>
                     <input type="submit" id="send-button" value="Send">
                     <label id="err">Fields cannot be empty!</label>
                     <input type="hidden" name="type" value="comment"/>
                     <input type="hidden" name="loc" value="'.$location.'"/>
+                    <input type="hidden" name="id" value="'.$id.'"/>
                 </form>
             </div>';
         }

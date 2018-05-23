@@ -69,10 +69,17 @@ function createPost($tempID = 0){
     $u_id = $_SESSION['u_id'];
     $location = $_POST['loc'];
     $parent = $tempID;
-    echo $_POST['loc'];
     $sql = "INSERT INTO post (u_id, title, description, l_id, rating, parent_id)
     VALUES ('$u_id', '$title', '$desc', '$location', '0', '$parent')";
     $stmt = $connection->query($sql);
     return $stmt;
+}
+function updatePost($tempID){
+    $sql = "UPDATE post SET parent_id= '$tempID' WHERE p_id= '$tempID'";
+    return connect()->query($sql);
+}
+function getMaxId(){
+    $sql = "SELECT MAX(p_id) AS id FROM post";
+    return connect()->query($sql);
 }
 ?>
