@@ -29,23 +29,15 @@ $id = $_GET["id"];
                     <a class="nav-link" href="omoss.php">Om oss</a>
                 </li>
             </ul>
-            <?php
-            echo '<div class="username"><h4>';
-            if(isset($_SESSION["user"]))
-            {
-                echo 'Välkommen '.$_SESSION["user"];
-            } else {
-                echo 'Logga in här :)';
-            }
-            echo '</h4></div>';
-            ?>
         </div>
         <?php
+            echo '<div class="navbar-brand">';
             if (isset($_SESSION["u_id"])){
-                echo '<div class="navbar-brand">
-                        Välkommen '.$_SESSION["name"].', <a class="nav-item active" href="logout.php">Logga ut</a>?
-                    </div>';
+                echo 'Välkommen '.$_SESSION["name"].', <a class="nav-item active" href="logout.php">Logga ut</a>?';
+            } else {
+                echo '<a class="nav-item active" href="login.php">Logga in?</a>';
             }
+            echo '</div>';
         ?>
     </nav>
     <a name="topOfPage"></a>
@@ -55,19 +47,19 @@ $id = $_GET["id"];
     <div id="topic_wrapper">
         <?php
         while($rows = $stmt->fetch_assoc()){
-            if ($rows["parent"] == $id){
-                if ($rows["parent"] == $rows["t_id"]){
+            if ($rows["parent_id"] == $id){
+                if ($rows["parent_id"] == $rows["p_id"]){
                     echo '<div class="topic"><div class="breadtext>"<h3>'.$rows["title"]."</h3> (".$rows["date"].") No.";
-                    echo '<a href="javascript:addToComment('.$rows["t_id"].');" name="'.$rows["t_id"].'" class="liketext" >'.$rows["t_id"].'</a>';
+                    echo '<a href="javascript:addToComment('.$rows["p_id"].');" name="'.$rows["p_id"].'" class="liketext" >'.$rows["p_id"].'</a>';
                 } else {
-                    echo '<div class="comment"><input type="checkbox" class= "check" name="'.$rows["t_id"].'"/> ';
+                    echo '<div class="comment"><input type="checkbox" class= "check" name="'.$rows["p_id"].'"/> ';
                     echo " (".$rows["date"].") No.";
-                    echo '<a href="javascript:addToComment('.$rows["t_id"].');" name="'.$rows["t_id"].'" class="liketext" >'.$rows["t_id"].'</a>';
+                    echo '<a href="javascript:addToComment('.$rows["p_id"].');" name="'.$rows["p_id"].'" class="liketext" >'.$rows["p_id"].'</a>';
                 }
                 echo '<div class="innerchild"><pre>'.$rows["description"].'</pre></div>';
                 echo '</div></div>';
                 echo '<div class="vote_wrapper"><div class="arrow_up"></div><div class="vote_value"><p>137</p></div><div class="arrow_down"></div></div>';
-                echo '<div class="creator"><h4>'.getuser($rows["poster_id"]).'</h4></div>';
+                echo '<div class="creator"><h4>'.getuser($rows["u_id"])["name"].'</h4></div>';
                 echo '<div class="timestamp"><h4>'.$rows["date"].'</h4></div>';
             }
         }

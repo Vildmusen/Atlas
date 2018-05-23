@@ -28,7 +28,7 @@ function makeUser($salt){
     return $stmt;
 }
 function getcomments(){
-    $sql = "SELECT * FROM topic";
+    $sql = "SELECT * FROM post";
     $result = connect()->query($sql);
     return $result;
 }
