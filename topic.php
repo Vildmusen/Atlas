@@ -63,7 +63,7 @@ $id = $_GET["id"];
                     <div class="arrow_down"></div>
                     </div>
 
-                    <div class="creator"><h4>'.$rows['u_id'].'</h4></div>
+                    <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>
                     <div class="report_field"><h4>report</h4></div>
                     <div class="timestamp"><h4>'.$rows['date'].'</h4></div>
                     </div>';
@@ -80,7 +80,7 @@ $id = $_GET["id"];
                     <div class="arrow_down"></div>
                     </div>
 
-                    <div class="creator"><h4>'.$rows['u_id'].'</h4></div>
+                    <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>
                     <div class="report_field"><h4>report</h4></div>
                     <div class="timestamp"><h4>'.$rows['date'].'</h4></div>
                     </div>';
