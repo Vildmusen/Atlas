@@ -31,24 +31,25 @@ $id = $_GET["id"];
             </ul>
         </div>
         <?php
-            echo '<div class="navbar-brand">';
-            if (isset($_SESSION["u_id"])){
-                echo 'Välkommen '.$_SESSION["name"].', <a class="nav-item active" href="logout.php">Logga ut</a>?';
-            } else {
-                echo '<a class="nav-item active" href="login.php">Logga in?</a>';
-            }
-            echo '</div>';
+        echo '<div class="navbar-brand">';
+        if (isset($_SESSION["u_id"])){
+            echo 'Välkommen '.$_SESSION["name"].', <a class="nav-item active" href="logout.php">Logga ut</a>?';
+        } else {
+            echo '<a class="nav-item active" href="login.php">Logga in?</a>';
+        }
+        echo '</div>';
         ?>
     </nav>
     <a name="topOfPage"></a>
     <?php
-    echo '<label>[</label><a href="thread.php?id='.$id.'#bottomOfPage" class="likeabutton">Bottom</a><label>]</label>';
+    echo '<label>[</label><a href="topic.php?id='.$id.'#bottomOfPage" class="likeabutton">Bottom</a><label>]</label>';
     ?>
     <div id="topic_wrapper">
         <?php
         while($rows = $stmt->fetch_assoc()){
             if ($rows["parent_id"] == $id){
                 if ($rows["parent_id"] == $rows["p_id"]){
+                    $location = $rows["l_id"];
                     echo '<div class="topic"><div class="breadtext>"<h3>'.$rows["title"]."</h3> (".$rows["date"].") No.";
                     echo '<a href="javascript:addToComment('.$rows["p_id"].');" name="'.$rows["p_id"].'" class="liketext" >'.$rows["p_id"].'</a>';
                 } else {
@@ -64,33 +65,24 @@ $id = $_GET["id"];
             }
         }
         ?>
-        <div id="form">
-            <label id="reply">Reply to thread</label>
-            <?php
-            echo $id;
-            echo '<form name="commForm" action="process.php?id='.$id.'" method="post" onsubmit="return validateForm()">';
-            ?>
-            <?php
-            if(isset($_SESSION["mail"])){
-                echo 'Mail: <input type="hidden" class="fields" name="mail" value="'.$_SESSION['mail'].'">'.$_SESSION['mail'].'</input><br>';
-            } else {
-                echo '<input type="email" class="fields" name="mail" placeholder="Mail..." required pattern=".*[@].*[.].*"><br>';
-            }
-            ?>
-            <input type="text" id="field-name" class="fields" name="name" placeholder="Name..." required><br>
-            <textarea rows="10" id="field-text" cols="30" wrap="soft" class="fields" name="text" placeholder="Text..." required></textarea><br>
-            <input type="submit" id="send-button" value="Send">
-            <label id="err">Fields cannot be empty!</label>
-            <input type="hidden" name="type" value="comment"/>
-        </form>
+        <?php
+        if (isset($_SESSION["u_id"])){
+            echo
+            '<div id="form">
+                <label id="reply">Svara</label>
+                <form name="commForm" action="process.php?id='.$id.'" method="post" onsubmit="return validateForm()">
+                    <input type="text" id="field-title" class="fields" name="title" placeholder="Titel" required><br>
+                    <textarea rows="10" id="field-text" cols="30" wrap="soft" class="fields" name="description" placeholder="Text..." required></textarea><br>
+                    <input type="submit" id="send-button" value="Send">
+                    <label id="err">Fields cannot be empty!</label>
+                    <input type="hidden" name="type" value="comment"/>
+                    <input type="hidden" name="loc" value="'.$location.'"/>
+                </form>
+            </div>';
+        }
+        echo '<label>[</label><a href="topic.php?id='.$id.'#topOfPage" class="likeabutton">Top</a><label>]</label>';
+        ?>
     </div>
-    <?php
-    echo '<label>[</label><a href="thread.php?id='.$id.'#topOfPage" class="likeabutton">Top</a><label>]</label>';
-    ?>
-
-
-</div>
-<a name="bottomOfPage"></a>
-
+    <a name="bottomOfPage"></a>
 </body>
 </html>

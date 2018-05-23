@@ -61,4 +61,18 @@ function getcity($location=""){
 function getallcities(){
     return connect()->query("SELECT * from location");
 }
+function createPost($tempID = 0){
+    $connection = connect();
+    $title = mysqli_real_escape_string($connection, $_POST['title']);
+    $desc = mysqli_real_escape_string($connection, $_POST['description']);
+    $name = $_SESSION['name'];
+    $u_id = $_SESSION['u_id'];
+    $location = $_POST['loc'];
+    $parent = $tempID;
+    echo $_POST['loc'];
+    $sql = "INSERT INTO post (u_id, title, description, l_id, rating, parent_id)
+    VALUES ('$u_id', '$title', '$desc', '$location', '0', '$parent')";
+    $stmt = $connection->query($sql);
+    return $stmt;
+}
 ?>
