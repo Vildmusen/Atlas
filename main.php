@@ -38,7 +38,7 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
             <div id="location_wrapper">
                 <div id="location_name">
                     <?php
-                        
+
                         $city = getcity($location);
                         echo "<h2>".$city['city']."</h2>";
 
@@ -100,10 +100,12 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                         </div>
 
                     <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>
-                    <div class="comment_holder"><div class="comment_icon"></div><h4>'.getTotalComments($row['parent_id']).'</h4></div>
-                    <div class="report_field"><h4>report</h4></div>
-                    <div class="timestamp"><h4>'.$row['date'].'</h4></div>
-                </div>';
+                    <div class="comment_holder"><div class="comment_icon"></div><h4>'.getTotalComments($row['parent_id']).'</h4></div>';
+                    if ($row['u_id'] != $_SESSION['u_id']){
+                        echo '<div class="report_field"><h4>report</h4></div>';
+                    }
+                    echo '<div class="timestamp"><h4>'.$row['date'].'</h4></div>
+                </div></div>';
             }
         }
         ?>
