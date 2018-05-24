@@ -114,7 +114,7 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                 <form name="commForm" action="process.php" method="post" onsubmit="return validateForm()">
 
                     <textarea rows="3" id="field-text" wrap="soft" class="fields" name="description" placeholder="Text..." required></textarea>
-                    <input type="submit" id="send-button" value="Send">
+                    <input type="submit" id="sendbutton" value="Send">
 
                     <label id="err">Fields cannot be empty!</label>
                     <input type="hidden" name="type" value="comment"/>
