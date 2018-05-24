@@ -82,4 +82,18 @@ function getMaxId(){
     $sql = "SELECT MAX(p_id) AS id FROM post";
     return connect()->query($sql);
 }
+
+function getTotalComments($parent_id) {
+    $sql = "SELECT COUNT(description) FROM post WHERE parent_id = '$parent_id'";
+    $result = connect()->query($sql);
+    $totalComments = $result->fetch_assoc();
+    return $totalComments['COUNT(description)'] - 1;
+}
+
+function getPostRating($post_id) {
+    $sql = "SELECT post_rating FROM rating WHERE p_id = '$post_id'";
+    $result = connect()->query($sql);
+    $postRating = $result->fetch_assoc();
+    return $postRating['post_rating'];
+}
 ?>
