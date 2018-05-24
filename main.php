@@ -99,10 +99,11 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                             <div class="arrow_down"></div>
                         </div>
 
-                    <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>
-                    <div class="comment_holder"><div class="comment_icon"></div><h4>'.getTotalComments($row['parent_id']).'</h4></div>
-                    <div class="report_field"><h4>report</h4></div>
-                    <div class="timestamp"><h4>'.$row['date'].'</h4></div>
+                        <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>
+                        <div class="comment_holder"><div class="comment_icon"></div><h4>'.getTotalComments($row['parent_id']).'</h4></div>
+                        <div class="report_field"><h4>report</h4></div>
+                        <div class="timestamp"><h4>'.$row['date'].'</h4></div>
+                    </div>
                 </div>';
             }
         }
