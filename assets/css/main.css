@@ -42,13 +42,6 @@
             color: #fff;
             background: #343a40;
         }
-
-
-#topic_wrapper {
-    width:800px;
-    margin-top:56px;
-    padding-top:10px;
-}
        
     #location_list{
         display: none;
@@ -65,6 +58,52 @@
         z-index: 10;
     }
 
+#create_link{
+    position: fixed;
+    bottom: 10vh;
+    right: 10vh;
+    width: 120px;
+    height: 32px;
+    background:rgb(151, 190, 187);
+    border-radius: 5px;
+    z-index: 100;
+}
+
+    #create_link:hover {
+        color: #fff;
+        background: #343a40;
+    }
+
+    #create_button {
+        padding: 3px 0 0 5px;
+    }
+    
+#topic_wrapper {
+    width:800px;
+    margin-top:56px;
+    margin-bottom: 90px;
+    padding-top:10px;
+}
+
+    #topic_wrapper h3 {
+        padding: 10px 0 0 10px;
+        margin:0;
+        font-size: 22px;
+    }
+
+    #topic_wrapper p {
+        padding: 10px 0 0 15px;
+        font-size: 13px;
+    }
+
+    #topic_wrapper h4 {
+        font-size:12px;
+        margin:0;
+        padding:7px 10px 5px;
+        font-weight:400;
+        opacity:0.7;
+    }
+
     #topic_link {
         color: inherit;
     }
@@ -73,63 +112,61 @@
         min-width: 500px;
         max-width: 700px;
         width: 80%;
-        height: 120px;
         margin: 20px auto 10px auto;
         background:rgb(151, 190, 187);
         border-radius: 5px;
     }
 
-        .breadtext {
-            width:80%;
-            height:90px;
-            float:left;
-        }
-            .breadtext h3 {
-                padding: 10px 0 0 10px;
-                margin:0;
-                font-size: 22px;
-            }
-
-            .breadtext p {
-                padding: 10px 0 0 15px;
-                font-size: 13px;
-            }
-
-        .vote_wrapper {
-            width: 8%;
-            height: 90px;
-            padding-top: 10px;
-            text-align: center;
-            float: right;
+        .height_wrapper {
+            width: 100%;            
+            overflow: hidden;
         }
 
-            .arrow_up {
-                position: relative;
-                left: 50%;
-                margin-left: -12px;
-                height: 27px;
-                width: 27px;
-                background-image: url("../img/dropdown_arrow.png");
-                transform: rotate(180deg);
-                background-size: contain;
-                background-repeat: no-repeat;
+            .breadtext {
+                width:80%;
+                min-height: 90px;
+                float:left;
             }
 
-            .vote_value p {
-                margin: 0;
+            .vote_wrapper {
+                width: 8%;
+                height: 90px;
+                padding-top: 5px;
+                text-align: center;
+                float: right;
             }
 
-            .arrow_down {
-                position: relative;
-                left: 50%;
-                margin-left: -13.5px;
-                height: 27px;
-                width: 27px;
-                background-image: url("../img/dropdown_arrow.png");
-                background-size: contain;
-                background-repeat: no-repeat;
-
+            #vote_wrapper_topic {
+                height: 120px;
             }
+
+                .arrow_up {
+                    position: relative;
+                    left: 50%;
+                    margin-left: -12px;
+                    height: 27px;
+                    width: 27px;
+                    background-image: url("../img/dropdown_arrow.png");
+                    transform: rotate(180deg);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+
+                .vote_value p {
+                    margin: 0;
+                    padding: 0 !important;
+                }
+
+                .arrow_down {
+                    position: relative;
+                    left: 50%;
+                    margin-left: -13.5px;
+                    height: 27px;
+                    width: 27px;
+                    background-image: url("../img/dropdown_arrow.png");
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
 
         .creator {
             width:40%;
@@ -164,15 +201,10 @@
 
         .timestamp {
             width:25%;
+            min-width: 130px;
             height:30px;
-            float:left;
+            float: right;
             text-align:right;
         }
 
-            .timestamp h4, .creator h4, .comment_holder h4, .report_field h4 {
-                font-size:12px;
-                margin:0;
-                padding:7px 10px 5px;
-                font-weight:400;
-                opacity:0.7;
-            }
+            

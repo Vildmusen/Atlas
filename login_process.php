@@ -1,12 +1,12 @@
 <?php
 include 'include/bootstrap.php';
 if(isset($_SESSION["u_id"])){
-    header("Location: index.php");
+    header("Header: index.php");
 }
 $assoc['pass'] = $_POST['pass'];
 $assoc['mail'] = $_POST['mail'];
 if (!verify($assoc)){
-    header("Location: login.php");
+    header("Header: login.php");
 } else {
     $stmt = getuser();
     $bool = false;
@@ -24,11 +24,10 @@ if (!verify($assoc)){
         if (sha1($_POST['pass'].$login_salt) === $login_hash){
             $_SESSION["u_id"] = $id;
             $_SESSION["name"] = $name;
-            echo '<h1>Logged in, redirecting...</h1>';
-            header("Refresh: 2, URL=main.php?c_id=".$town);
+            header("Location: main.php?c_id=".$town);
         } else {
-            echo '<h1>Wrong password.</h1>';
-            header("Refresh: 2, URL=login.php");
+            $_SESSION['error'] = "Wrong password.";
+            header("Location: login.php");
         }
     } else {
         echo '<h1>Password or mail didn'."'".'t match.</h1>';
