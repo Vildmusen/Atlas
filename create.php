@@ -20,26 +20,27 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
 <body>
     <div id="create_wrapper">
         <div class="topic">
-            <h3>Skapa fråga:</h3>
             <form name="commForm" action="process.php" method="post" onsubmit="return validateForm()">
                 
-                <input type="text" id="field-title" class="fields" name="title" placeholder="Titel" required><br>
-                <textarea rows="10" id="field-text" cols="30" wrap="soft" class="fields" name="description" placeholder="Text..." required></textarea><br>
-                
-                <select id="cityselect" name="loc" required class="Register">
-                    <option value="" selected disabled hidden>Plats</option>
-                    <?php
-                    $stmt = getcity();
-                    while($rows = $stmt->fetch_assoc()){
-                        echo "<option value=".$rows['c_id'].">".$rows['city']."</option>";
-                    }
-                    ?>
-                </select>
-                
-                <input type="submit" id="send-button" value="Send">
-                <label id="err">Fields cannot be empty!</label>
-                <input type="hidden" name="type" value="thread"/>
-
+                <div id="input_field">
+                    <h3>Skapa fråga:</h3>
+                    <input type="text" id="field-title" class="fields" name="title" placeholder="Titel" required>
+                    <textarea rows="10" id="field-text" cols="30" wrap="soft" class="fields" name="description" placeholder="Text..." required></textarea>
+                    
+                    <select id="cityselect" name="loc" required class="Register">
+                        <option value="" selected disabled hidden>Plats</option>
+                        <?php
+                        $stmt = getcity();
+                        while($rows = $stmt->fetch_assoc()){
+                            echo "<option value=".$rows['c_id'].">".$rows['city']."</option>";
+                        }
+                        ?>
+                    </select>
+                    
+                    <input type="submit" id="send-button" value="Send">
+                    <label id="err">Fields cannot be empty!</label>
+                    <input type="hidden" name="type" value="thread"/>
+                </div> 
             </form>
         </div>
     </div>
