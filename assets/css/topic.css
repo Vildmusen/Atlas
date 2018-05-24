@@ -28,16 +28,8 @@
 
     .breadtext_comment {   
         width: 80%;
-        min-height: 30px;
+        min-height: 60px;
         float: left;
-    }
-        
-    .vote_wrapper_comment {
-        width: 90px;
-        height: 30px;
-        padding-top: 10px;
-        text-align: center;
-        float: right;
     }
 
         .arrow_up_comment {
@@ -51,6 +43,7 @@
         }
 
         .vote_value_comment {
+            margin: 0 3px 0 3px;
             min-width: 20px;
             padding-top: 4px;
             float: left;

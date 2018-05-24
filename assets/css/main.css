@@ -130,9 +130,13 @@
             .vote_wrapper {
                 width: 8%;
                 height: 90px;
-                padding-top: 10px;
+                padding-top: 5px;
                 text-align: center;
                 float: right;
+            }
+
+            #vote_wrapper_topic {
+                height: 120px;
             }
 
                 .arrow_up {
