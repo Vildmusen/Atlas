@@ -17,16 +17,18 @@
         min-width: 500px;
         max-width: 700px;
         width: 80%;
-        height:120px;
+        height: 120px;
         margin: 20px auto 10px auto;
         background:rgb(151, 170, 187);
         border-radius: 5px;
     }
+
         .breadtext_topic {
             width:80%;
             height:90px;
             float:left;
         }
+
             .breadtext_topic h3 {
                 padding: 10px 0 0 10px;
                 margin:0;
@@ -37,12 +39,11 @@
                 padding: 10px 0 0 15px;
                 font-size: 13px;
             }
+
             .breadtext_topic pre {
                 padding: 10px 0 0 15px;
                 font-size: 13px;
             }
-
-
 
         .vote_wrapper_topic {
             width: 8%;
@@ -67,7 +68,6 @@
                 background-image: url("../img/arrowdown.png");
                 background-size: contain;
                 background-repeat: no-repeat;
-
             }
 
         .creator_topic {

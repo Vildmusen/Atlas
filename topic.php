@@ -69,21 +69,22 @@ $id = $_GET["id"];
                     </div>';
 
                 } else {
-                    echo '<div class="comment">
-                    <div class="breadtext">
-                    <h3> '.$rows['title'].'</h3>
-                    <p> '.$rows['description'].'</p>
-                    </div>
-                    <div class="vote_wrapper">
-                    <div class="arrow_up"></div>
-                    <div class="vote_value"><p>'.$rows['rating'].'</p></div>
-                    <div class="arrow_down"></div>
-                    </div>
+                    echo 
+                        '<div class="comment">
+                            <div class="breadtext_topic">
+                                <h3> '.$rows['title'].'</h3>
+                                <p> '.$rows['description'].'</p>
+                            </div>
+                            <div class="vote_wrapper">
+                                <div class="arrow_up"></div>
+                                <div class="vote_value"><p>'.$rows['rating'].'</p></div>
+                                <div class="arrow_down"></div>
+                            </div>
 
-                    <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>
-                    <div class="report_field"><h4>report</h4></div>
-                    <div class="timestamp"><h4>'.$rows['date'].'</h4></div>
-                    </div>';
+                            <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>
+                            <div class="report_field"><h4>report</h4></div>
+                            <div class="timestamp"><h4>'.$rows['date'].'</h4></div>
+                        </div>';
 
                 }
 

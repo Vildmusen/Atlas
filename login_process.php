@@ -1,12 +1,12 @@
 <?php
 include 'include/bootstrap.php';
 if(isset($_SESSION["u_id"])){
-    header("Location: index.php");
+    header("Header: index.php");
 }
 $assoc['pass'] = $_POST['pass'];
 $assoc['mail'] = $_POST['mail'];
 if (!verify($assoc)){
-    header("Location: login.php");
+    header("Header: login.php");
 } else {
     $stmt = getuser();
     $bool = false;
