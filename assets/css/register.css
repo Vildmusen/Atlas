@@ -1,0 +1,35 @@
+#register_user {
+    width: 100%;
+    border-radius: 5px;
+    background: rgb(95, 139, 136);
+    padding: 20px;
+    margin-bottom: 20px;
+
+}
+
+#register_box {
+    width: 100%;
+    border-radius: 5px;
+    background: rgb(151, 190, 187);
+    padding: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 1px;
+}
+
+#register_user h3 {
+    margin-left: 80px;
+}
+    .Register {
+        margin-bottom: 10px;
+        margin-left: 25px;
+    }
+        
+        #cityselect {
+
+            margin-left: 25px;
+        }
+
+        #button_save {
+            margin-left: 22px;
+                          
+        }
