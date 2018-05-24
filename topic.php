@@ -7,6 +7,12 @@ error_reporting(E_ALL | E_STRICT);
 $stmt = getcomments();
 $id = $_GET["id"];
 
+if (isset($_SESSION['u_id'])){
+    $u_id = $_SESSION['u_id'];
+} else {
+    $u_id = 0;
+}
+
 if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
     $location = $_GET['c_id'];
 } else {
@@ -16,54 +22,6 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
 
 <html>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-
-        <a class="navbar-brand" href="#">Atlas</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php">Hem</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="main.php">Utforska<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="omoss.php">Om oss</a>
-                </li>
-            </ul>
-
-            <div id="location_wrapper">
-
-                <div id="location_name">
-                    <?php
-                        $city = getcity($location);
-                        echo "<h2>".$city['city']."</h2>";
-                    ?>
-                </div>
-
-                <div id="location_dropdown">
-                    <div id="location_button" onclick="show_list();"></div>
-                </div>
-            </div>
-
-        </div>
-
-        <?php
-        echo '<div class="navbar-brand">';
-        if (isset($_SESSION["u_id"])){
-            echo 'Välkommen '.$_SESSION["name"].', <a class="nav-item active" href="logout.php">Logga ut</a>?';
-        } else {
-            echo '<a class="nav-item active" href="login.php">Logga in?</a>';
-        }
-        echo '</div>';
-        ?>
-
-    </nav>
-
     <a name="topOfPage"></a>
 
     <!-- GÖMMA OM MAN ÄR LÄNGST NERE? -->
@@ -113,9 +71,11 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                             </div>
 
                             <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
-                            if ($rows['u_id'] != $_SESSION['u_id']){
+                            
+                            if ($rows['u_id'] != $u_id){
                                 echo '<div class="report_field"><h4>report</h4></div>';
                             }
+                            
                             echo '<div class="timestamp"><h4>'.$rows['date'].'</h4></div>
                         </div>
                     </div>';
@@ -135,7 +95,7 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                                 </div>
 
                                 <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
-                                if ($rows['u_id'] != $_SESSION['u_id']){
+                                if ($rows['u_id'] != $u_id){
                                     echo '<div class="report_field"><h4>report</h4></div>';
                                 }
                                 echo '<div class="timestamp"><h4>'.$rows['date'].'</h4></div>
