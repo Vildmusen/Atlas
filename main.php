@@ -101,7 +101,11 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                     
 
                         <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>
-                        <div class="comment_holder"><div class="comment_icon"></div><h4>4</h4></div>
+                        
+                        <a href="topic.php?id='.$row['parent_id'].'&c_id='.$location.'" id="topic_link">
+                            <div class="comment_holder"><div class="comment_icon"></div><h4>4</h4></div>
+                        </a>
+                        
                         <div class="report_field"><h4>report</h4></div>
                         <div class="timestamp"><h4>'.$row['date'].'</h4></div>
                     </div>
