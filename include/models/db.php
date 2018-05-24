@@ -47,6 +47,12 @@ function getpost($location){
     $query = "SELECT * FROM post WHERE l_id='$location'";
     return connect()->query($query);
 }
+
+function getpostfromid($p_id){
+    $query = "SELECT * FROM post WHERE p_id='$p_id'";
+    return connect()->query($query);
+}
+
 function getcity($location=""){
     if ($location==""){
         $sql = "SELECT * FROM location";
@@ -81,6 +87,13 @@ function updatePost($tempID){
 function getMaxId(){
     $sql = "SELECT MAX(p_id) AS id FROM post";
     return connect()->query($sql);
+}
+
+
+function getReason(){
+    $sql = "SELECT reason FROM reason";
+    $result = connect()->query($sql);
+    return $result;
 }
 
 function getTotalComments($parent_id) {
