@@ -1,4 +1,24 @@
-    .comment {
+#answer_link{
+    position: fixed;
+    bottom: 10vh;
+    right: 10vh;
+    width: 130px;
+    height: 32px;
+    background:rgb(151, 190, 187);
+    border-radius: 5px;
+    z-index: 100;
+}
+
+    #answer_link:hover {
+        color: #fff;
+        background: #343a40;
+    }
+
+    #answer_button {
+        padding: 3px 0 0 0;
+    }
+
+.comment {
         min-width: 500px;
         max-width: 700px;
         width: 80%;
@@ -62,3 +82,15 @@
             background-size: contain;
             background-repeat: no-repeat;
         }
+
+.comment textarea {
+    width: 80%;
+    margin: 2.5%;    
+}
+
+.comment input {
+    width: 12.5%;
+    margin-top: 2.5%;
+    margin-right: 2.5%;
+    float: right;
+}

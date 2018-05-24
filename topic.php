@@ -37,19 +37,21 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
             </ul>
 
             <div id="location_wrapper">
+                
                 <div id="location_name">
                     <?php
-                        
                         $city = getcity($location);
                         echo "<h2>".$city['city']."</h2>";
-
                     ?>
                 </div>
+                
                 <div id="location_dropdown">
                     <div id="location_button" onclick="show_list();"></div>
                 </div>
             </div>
+
         </div>
+
         <?php
         echo '<div class="navbar-brand">';
         if (isset($_SESSION["u_id"])){
@@ -59,20 +61,32 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
         }
         echo '</div>';
         ?>
+
     </nav>
+
     <a name="topOfPage"></a>
+
+    <!-- GÖMMA OM MAN ÄR LÄNGST NERE? -->
     <?php
-    echo '<label>[</label><a href="topic.php?id='.$id.'#bottomOfPage" class="likeabutton">Bottom</a><label>]</label>';
-    ?>
-    <div class="container" id="topic_wrapper">
-    <div id="location_list">
-        <?php
-        $results = getallcities();
-        while($rows = $results->fetch_assoc()){
-            echo "<a href='main.php?c_id=".$rows['c_id']."' class='dropdown-item'>".$rows['city']."</a>";
+        if(isset($_SESSION['u_id'])){
+            echo '
+                <div class="container" id="answer_link">
+                    <a class="dropdown-item" id="answer_button" href="topic.php?id='.$id.'#bottomOfPage">Svara på fråga</a>
+                </div>';
         }
-        ?>
-    </div>
+    ?>
+
+    <div class="container" id="topic_wrapper">
+    
+        <div id="location_list">
+            <?php
+            $results = getallcities();
+            while($rows = $results->fetch_assoc()){
+                echo "<a href='main.php?c_id=".$rows['c_id']."' class='dropdown-item'>".$rows['city']."</a>";
+            }
+            ?>
+        </div>
+    
         <?php
         while($rows = $stmt->fetch_assoc()){
             if ($rows["parent_id"] == $id){
@@ -122,26 +136,26 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
 
             }
         }
+
+        if (isset($_SESSION["u_id"])){
+            echo
+            '<div class="comment">
+                <form name="commForm" action="process.php" method="post" onsubmit="return validateForm()">
+                    
+                    <textarea rows="3" id="field-text" wrap="soft" class="fields" name="description" placeholder="Text..." required></textarea>
+                    <input type="submit" id="send-button" value="Send">
+                    
+                    <label id="err">Fields cannot be empty!</label>
+                    <input type="hidden" name="type" value="comment"/>
+                    <input type="hidden" name="loc" value="'.$location.'"/>
+                    <input type="hidden" name="id" value="'.$id.'"/>    
+                </form>
+            </div>';
+        }
         ?>
+
     </div>
-    <?php
-    if (isset($_SESSION["u_id"])){
-        echo
-        '<div id="form">
-        <label id="reply">Svara</label>
-        <form name="commForm" action="process.php" method="post" onsubmit="return validateForm()">
-        <input type="text" id="field-title" class="fields" name="title" placeholder="Titel" required><br>
-        <textarea rows="10" id="field-text" cols="30" wrap="soft" class="fields" name="description" placeholder="Text..." required></textarea><br>
-        <input type="submit" id="send-button" value="Send">
-        <label id="err">Fields cannot be empty!</label>
-        <input type="hidden" name="type" value="comment"/>
-        <input type="hidden" name="loc" value="'.$location.'"/>
-        <input type="hidden" name="id" value="'.$id.'"/>
-        </form>
-        </div>';
-    }
-    echo '<label>[</label><a href="topic.php?id='.$id.'#topOfPage" class="likeabutton">Top</a><label>]</label>';
-    ?>
+
     <a name="bottomOfPage"></a>
 </body>
 </html>
