@@ -5,8 +5,72 @@ body{
     background-position: 100% 100%; */
 
 }
+
 #err
 {
     color: red;
     display: none;
 }
+
+#location_wrapper{
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    width: 400px;
+    margin-left: -200px;
+    margin-top: 5px;
+}
+
+    #location_name{
+        width: 240px;
+        position: relative;
+        left: 50%;
+        margin-left: -120px;
+        text-align: center;
+        color: #fff;
+        float: left;
+    }
+
+    #location_dropdown{
+        width: 100px;
+        position: relative;
+        left: 100%;
+        margin-left: -100px;
+    }
+
+    #location_button{
+        height: 45px;
+        width: 45px;
+        background-image: url("../img/dropdown_arrow.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    #location_button:hover {
+        margin-top: 1px;
+        margin-left: 1px;
+        height: 43px;
+        widows: 43px;
+        cursor: pointer;
+    }
+
+        .dropdown-item:hover {
+            color: #fff;
+            background: #343a40;
+        }
+       
+    #location_list{
+        display: none;
+        width: 398px;
+        margin-left: -200px;
+        position: fixed;
+        top: 56px;
+        left: 50%;
+        border: 1px solid #343a40;
+        border-top: 0;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px; 
+        background:rgb(151, 190, 187);
+        z-index: 10;
+    }
+

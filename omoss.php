@@ -2,6 +2,7 @@
 <html>
 <?php
     include 'include/bootstrap.php';
+    include 'include/views/nav-no-city.php';
 ?>
 <body>
     <main role="main" class="container" id="content">

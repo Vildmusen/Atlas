@@ -3,21 +3,14 @@
 <html>
 <?php
 include 'include/bootstrap.php';
+include 'include/views/nav.php';
 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
 ?>
 <body>
-    <div id="location_list">
-        <?php
-        $results = getallcities();
-        while($rows = $results->fetch_assoc()){
-            echo "<a href='main.php?c_id=".$rows['c_id']."' class='dropdown-item'>".$rows['city']."</a>";
-        }
-        ?>
-    </div>
-
+    
     <?php
         if(isset($_SESSION['u_id'])){
             echo '
