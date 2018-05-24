@@ -89,9 +89,24 @@ function getMaxId(){
     return connect()->query($sql);
 }
 
+<<<<<<< HEAD
 function getReason(){
     $sql = "SELECT reason FROM reason";
     $result = connect()->query($sql);
     return $result;
+=======
+function getTotalComments($parent_id) {
+    $sql = "SELECT COUNT(description) FROM post WHERE parent_id = '$parent_id'";
+    $result = connect()->query($sql);
+    $totalComments = $result->fetch_assoc();
+    return $totalComments['COUNT(description)'] - 1;
+}
+
+function getPostRating($post_id) {
+    $sql = "SELECT post_rating FROM rating WHERE p_id = '$post_id'";
+    $result = connect()->query($sql);
+    $postRating = $result->fetch_assoc();
+    return $postRating['post_rating'];
+>>>>>>> 880d648fcd4c820816c4270798dda11d131ab7c3
 }
 ?>
