@@ -25,7 +25,7 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                 <div id="input_field">
                     <h3>Skapa fråga:</h3>
                     <input type="text" id="field-title" class="fields" name="title" placeholder="Titel" required>
-                    <textarea rows="10" id="field-text" cols="30" wrap="soft" class="fields" name="description" placeholder="Text..." required></textarea>
+                    <textarea rows="10" id="field-text-create" cols="30" wrap="soft" class="fields" name="description" placeholder="Text..." required></textarea>
                     
                     <select id="cityselect" name="loc" required class="Register">
                         <option value="" selected disabled hidden>Plats</option>
