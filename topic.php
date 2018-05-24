@@ -6,6 +6,12 @@ error_reporting(E_ALL | E_STRICT);
 
 $stmt = getcomments();
 $id = $_GET["id"];
+
+if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
+    $location = $_GET['c_id'];
+} else {
+    $location = 1;
+}
 ?>
 
 <html>
@@ -29,6 +35,20 @@ $id = $_GET["id"];
                     <a class="nav-link" href="omoss.php">Om oss</a>
                 </li>
             </ul>
+
+            <div id="location_wrapper">
+                <div id="location_name">
+                    <?php
+                        
+                        $city = getcity($location);
+                        echo "<h2>".$city['city']."</h2>";
+
+                    ?>
+                </div>
+                <div id="location_dropdown">
+                    <div id="location_button" onclick="show_list();"></div>
+                </div>
+            </div>
         </div>
         <?php
         echo '<div class="navbar-brand">';
@@ -45,6 +65,14 @@ $id = $_GET["id"];
     echo '<label>[</label><a href="topic.php?id='.$id.'#bottomOfPage" class="likeabutton">Bottom</a><label>]</label>';
     ?>
     <div class="container" id="topic_wrapper">
+    <div id="location_list">
+        <?php
+        $results = getallcities();
+        while($rows = $results->fetch_assoc()){
+            echo "<a href='main.php?c_id=".$rows['c_id']."' class='dropdown-item'>".$rows['city']."</a>";
+        }
+        ?>
+    </div>
         <?php
         while($rows = $stmt->fetch_assoc()){
             if ($rows["parent_id"] == $id){
@@ -52,26 +80,28 @@ $id = $_GET["id"];
                     $location = $rows["l_id"];
                     echo
                     '<div class="topic">
-                    <div class="breadtext">
-                    <h3> '.$rows['title'].'</h3>
-                    <p> '.$rows['description'].'</p>
-                    </div>
-                    </a>
-                    <div class="vote_wrapper">
-                    <div class="arrow_up"></div>
-                    <div class="vote_value"><p>'.$rows['rating'].'</p></div>
-                    <div class="arrow_down"></div>
-                    </div>
+                        <div class="height_wrapper">
+                            <div class="breadtext">
+                                <h3> '.$rows['title'].'</h3>
+                                <p> '.$rows['description'].'</p>
+                            </div>
 
-                    <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>
-                    <div class="report_field"><h4>report</h4></div>
-                    <div class="timestamp"><h4>'.$rows['date'].'</h4></div>
+                            <div class="vote_wrapper">
+                                <div class="arrow_up"></div>
+                                <div class="vote_value"><p>'.$rows['rating'].'</p></div>
+                                <div class="arrow_down"></div>
+                            </div>
+
+                            <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>
+                            <div class="report_field"><h4>report</h4></div>
+                            <div class="timestamp"><h4>'.$rows['date'].'</h4></div>
+                        </div>
                     </div>';
 
                 } else {
                     echo 
                         '<div class="comment">
-                            <div class="breadtext_topic">
+                            <div class="breadtext">
                                 <h3> '.$rows['title'].'</h3>
                                 <p> '.$rows['description'].'</p>
                             </div>

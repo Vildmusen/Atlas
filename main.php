@@ -81,7 +81,7 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                 echo
                 '<div class="topic">
                     <div class="height_wrapper">
-                        <a href="topic.php?id='.$row['parent_id'].'" id="topic_link">
+                        <a href="topic.php?id='.$row['parent_id'].'&c_id='.$location.'" id="topic_link">
                             <div class="breadtext">
                                 <h3> '.$row['title'].'</h3>
                                 <p> '.$row['description'].'</p>
