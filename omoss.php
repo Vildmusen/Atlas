@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
- <?php
-    include 'include/bootstrap.php';
- ?>
-    <body>
+<?php
+include 'include/bootstrap.php';
+?>
+<body>
 
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     
@@ -39,9 +39,26 @@
         <div class="container" id="terms_cons"><a href="termsandcons.php">Terms and conditions</a></div>  
 </main>  
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-        
-    </body>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="index.php">Hem </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="main.php">Utforska</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="omoss.php">Om oss<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+        <?php
+        if (isset($_SESSION["u_id"])){
+            echo '<div class="navbar-brand">
+            Välkommen '.$_SESSION["name"].', <a class="nav-item active" href="logout.php">Logga ut</a>?
+            </div>';
+        }
+        ?>
+    </nav>
+</body>
 </html>
