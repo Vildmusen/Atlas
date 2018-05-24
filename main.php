@@ -92,7 +92,7 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
 
                 <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>
                 <div class="comment_holder"><div class="comment_icon"></div><h4>4</h4></div>
-                <div class="report_field"><h4>report</h4></div>
+                <a href="report.php?post='.$row['p_id'].'"><div class="report_field"><h4>report</h4></div></a>
                 <div class="timestamp"><h4>'.$row['date'].'</h4></div>
                 </div>';
             }
