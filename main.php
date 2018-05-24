@@ -33,9 +33,6 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                 <li class="nav-item">
                     <a class="nav-link" href="omoss.php">Om oss</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="create.php">Skapa fråga</a>
-                </li>
             </ul>
 
             <div id="location_wrapper">
@@ -71,6 +68,15 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
         }
         ?>
     </div>
+
+    <?php
+        if(isset($_SESSION['u_id'])){
+            echo '
+                <div class="container" id="create_link">
+                    <a class="dropdown-item" id="create_button" href="create.php">Skapa fråga</a>
+                </div>';
+        }
+    ?>
 
     <div class="container" id="topic_wrapper">
 

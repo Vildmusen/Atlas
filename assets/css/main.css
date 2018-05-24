@@ -57,6 +57,26 @@
         background:rgb(151, 190, 187);
         z-index: 10;
     }
+
+#create_link{
+    position: fixed;
+    bottom: 10vh;
+    right: 10vh;
+    width: 120px;
+    height: 32px;
+    background:rgb(151, 190, 187);
+    border-radius: 5px;
+    z-index: 100;
+}
+
+    #create_link:hover {
+        color: #fff;
+        background: #343a40;
+    }
+
+    #create_button {
+        padding: 3px 0 0 5px;
+    }
     
 #topic_wrapper {
     width:800px;
