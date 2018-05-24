@@ -38,7 +38,7 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
             <div id="location_wrapper">
                 <div id="location_name">
                     <?php
-                        
+
                         $city = getcity($location);
                         echo "<h2>".$city['city']."</h2>";
 
