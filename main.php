@@ -38,7 +38,7 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
             <div id="location_wrapper">
                 <div id="location_name">
                     <?php
-                        
+
                         $city = getcity($location);
                         echo "<h2>".$city['city']."</h2>";
 
@@ -98,7 +98,6 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                             <div class="vote_value"><p>'.$row['rating'].'</p></div>
                             <div class="arrow_down"></div>
                         </div>
-                    
 
                         <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>
                         
