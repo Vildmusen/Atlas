@@ -9,7 +9,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 
     <a class="navbar-brand" href="#">Atlas</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" onclick="show_hide_drop('location_dropdown');">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -39,31 +39,6 @@
                 echo '</ul>';
             }
             ?>
-
     </div>
-
-    <div id="location_wrapper">
-        <div id="location_name">
-            <?php
-
-                $city = getcity($location);
-                echo "<h2>".$city['city']."</h2>";
-
-            ?>
-        </div>
-        <div id="location_dropdown">
-            <div id="location_button" onclick="show_hide('location_list');"></div>
-        </div>
-    </div>
-
-    <div id="location_list">
-        <?php
-        $results = getallcities();
-        while($rows = $results->fetch_assoc()){
-            echo "<a href='main.php?c_id=".$rows['c_id']."' class='dropdown-item'>".$rows['city']."</a>";
-        }
-        ?>
-    </div>
-
 </nav>
 
