@@ -73,63 +73,68 @@
         min-width: 500px;
         max-width: 700px;
         width: 80%;
-        height: 120px;
         margin: 20px auto 10px auto;
         background:rgb(151, 190, 187);
         border-radius: 5px;
     }
 
-        .breadtext {
-            width:80%;
-            height:90px;
-            float:left;
-        }
-            .breadtext h3 {
-                padding: 10px 0 0 10px;
-                margin:0;
-                font-size: 22px;
-            }
-
-            .breadtext p {
-                padding: 10px 0 0 15px;
-                font-size: 13px;
-            }
-
-        .vote_wrapper {
-            width: 8%;
-            height: 90px;
-            padding-top: 10px;
-            text-align: center;
-            float: right;
+        .height_wrapper {
+            width: 100%;            
+            overflow: hidden;
         }
 
-            .arrow_up {
-                position: relative;
-                left: 50%;
-                margin-left: -12px;
-                height: 27px;
-                width: 27px;
-                background-image: url("../img/dropdown_arrow.png");
-                transform: rotate(180deg);
-                background-size: contain;
-                background-repeat: no-repeat;
+            .breadtext {
+                width:80%;
+                min-height: 90px;
+                height: 100%;
+                float:left;
+            }
+                .breadtext h3 {
+                    padding: 10px 0 0 10px;
+                    margin:0;
+                    font-size: 22px;
+                }
+
+                .breadtext p {
+                    padding: 10px 0 0 15px;
+                    font-size: 13px;
+                }
+
+            .vote_wrapper {
+                width: 8%;
+                height: 90px;
+                padding-top: 10px;
+                text-align: center;
+                float: right;
             }
 
-            .vote_value p {
-                margin: 0;
-            }
+                .arrow_up {
+                    position: relative;
+                    left: 50%;
+                    margin-left: -12px;
+                    height: 27px;
+                    width: 27px;
+                    background-image: url("../img/dropdown_arrow.png");
+                    transform: rotate(180deg);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
 
-            .arrow_down {
-                position: relative;
-                left: 50%;
-                margin-left: -13.5px;
-                height: 27px;
-                width: 27px;
-                background-image: url("../img/dropdown_arrow.png");
-                background-size: contain;
-                background-repeat: no-repeat;
+                .vote_value p {
+                    margin: 0;
+                }
 
-            }
+                .arrow_down {
+                    position: relative;
+                    left: 50%;
+                    margin-left: -13.5px;
+                    height: 27px;
+                    width: 27px;
+                    background-image: url("../img/dropdown_arrow.png");
+                    background-size: contain;
+                    background-repeat: no-repeat;
+
+                }
 
         .creator {
             width:40%;

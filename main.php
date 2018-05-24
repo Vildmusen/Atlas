@@ -28,7 +28,7 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                     <a class="nav-link" href="index.php">Hem</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="main.php">Utforska<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="main.php">Utforska</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="omoss.php">Om oss</a>
@@ -41,8 +41,9 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
             <div id="location_wrapper">
                 <div id="location_name">
                     <?php
-                    $city = getcity($location);
-                    echo "<h2>".$city['city']."</h2>";
+                        
+                        $city = getcity($location);
+                        echo "<h2>".$city['city']."</h2>";
 
                     ?>
                 </div>
@@ -50,15 +51,16 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                     <div id="location_button" onclick="show_list();"></div>
                 </div>
             </div>
-
         </div>
+
         <?php
             if (isset($_SESSION["u_id"])){
                 echo '<div class="navbar-brand">
-                        Välkommen '.$_SESSION["name"].', <a class="nav-item active" href="logout.php">Logga ut</a>?
+                        Välkommen '.$_SESSION["name"].'! <a class="nav-item active" href="logout.php">Logga ut</a>
                     </div>';
             }
         ?>
+
     </nav>
 
     <div id="location_list">
@@ -78,22 +80,25 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
             if($row['p_id'] == $row['parent_id']){
                 echo
                 '<div class="topic">
-                <a href="topic.php?id='.$row['parent_id'].'" id="topic_link">
-                <div class="breadtext">
-                <h3> '.$row['title'].'</h3>
-                <p> '.$row['description'].'</p>
-                </div>
-                </a>
-                <div class="vote_wrapper">
-                <div class="arrow_up"></div>
-                <div class="vote_value"><p>'.$row['rating'].'</p></div>
-                <div class="arrow_down"></div>
-                </div>
+                    <div class="height_wrapper">
+                        <a href="topic.php?id='.$row['parent_id'].'" id="topic_link">
+                            <div class="breadtext">
+                                <h3> '.$row['title'].'</h3>
+                                <p> '.$row['description'].'</p>
+                            </div>
+                        </a>
+                        <div class="vote_wrapper">
+                            <div class="arrow_up"></div>
+                            <div class="vote_value"><p>'.$row['rating'].'</p></div>
+                            <div class="arrow_down"></div>
+                        </div>
+                    
 
-                <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>
-                <div class="comment_holder"><div class="comment_icon"></div><h4>4</h4></div>
-                <div class="report_field"><h4>report</h4></div>
-                <div class="timestamp"><h4>'.$row['date'].'</h4></div>
+                        <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>
+                        <div class="comment_holder"><div class="comment_icon"></div><h4>4</h4></div>
+                        <div class="report_field"><h4>report</h4></div>
+                        <div class="timestamp"><h4>'.$row['date'].'</h4></div>
+                    </div>
                 </div>';
             }
         }
