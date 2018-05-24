@@ -49,15 +49,11 @@ error_reporting(E_ALL | E_STRICT);
                         </div>
 
                         <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>
-<<<<<<< HEAD
-                        <div class="comment_holder"><div class="comment_icon"></div><h4>'.getTotalComments($row['parent_id']).'</h4></div>
-=======
                         
                         <a href="topic.php?id='.$row['parent_id'].'&c_id='.$location.'" id="topic_link">
                             <div class="comment_holder"><div class="comment_icon"></div><h4>'.getTotalComments($row['parent_id']).'</h4></div>
                         </a>
                         
->>>>>>> styling_madness
                         <div class="report_field"><h4>report</h4></div>
                         <div class="timestamp"><h4>'.$row['date'].'</h4></div>
                     </div>
