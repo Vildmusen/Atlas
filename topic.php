@@ -70,9 +70,15 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
     <?php
         if(isset($_SESSION['u_id'])){
             echo '
-                <div class="container" id="answer_link">
+            <div class="link_holder">
+                <div class="container" id="link">
+                    <a class="dropdown-item" id="answer_button" href="create.php">Skapa ny fråga</a>
+                </div>
+
+                <div class="container" id="link">
                     <a class="dropdown-item" id="answer_button" href="topic.php?id='.$id.'#bottomOfPage">Svara på fråga</a>
-                </div>';
+                </div>
+            </div>';
         }
     ?>
 

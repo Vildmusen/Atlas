@@ -1,22 +1,26 @@
-#answer_link{
+.link_holder{
     position: fixed;
-    bottom: 10vh;
+    bottom: 15vh;
     right: 10vh;
-    width: 130px;
-    height: 32px;
-    background:rgb(151, 190, 187);
-    border-radius: 5px;
-    z-index: 100;
 }
 
-    #answer_link:hover {
-        color: #fff;
-        background: #343a40;
+    #link{
+        width: 130px;
+        height: 32px;
+        margin-top: 10px;
+        background:rgb(151, 190, 187);
+        border-radius: 5px;
+        z-index: 100;
     }
 
-    #answer_button {
-        padding: 3px 0 0 0;
-    }
+        #link:hover {
+            color: #fff;
+            background: #343a40;
+        }
+
+        #answer_button {
+            padding: 3px 0 0 0;
+        }
 
 .comment {
         min-width: 500px;
