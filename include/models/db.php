@@ -109,4 +109,23 @@ function getPostRating($post_id) {
     $postRating = $result->fetch_assoc();
     return $postRating['post_rating'];
 }
+
+function reportPost(){
+  $connection = connect();
+  $reason = mysqli_real_escape_string($connection, $_POST["reason"]);
+  $p_id = mysqli_real_escape_string($connection, $_POST["hidden_id"]);
+  $u_id = $_SESSION['u_id'];
+  $sql = "INSERT INTO flagged_post (p_id, u_id, reason)
+  VALUES ('$p_id', '$u_id', '$reason')";
+  $stmt = $connection->query($sql);
+}
+
+function getReportedPost(){
+  $connection = connect();
+  $p_id = mysqli_real_escape_string($connection, $_POST["hidden_id"]);
+  $u_id = $_SESSION['u_id'];
+  $sql = "SELECT p_id, u_id FROM flagged_post WHERE u_id = '$u_id' AND p_id = $p_id";
+  $stmt = $connection->query($sql);
+  return $stmt;
+}
 ?>
