@@ -151,11 +151,50 @@
             text-align:right;
         }
 
-#googleMap{
-    position:fixed;
-    left: 3%;
-    width: 20%;
+#google_wrapper{
+    position: fixed;
+    left: 10%;
+    top: 20%;
     height: 250px;
-    margin-top: 100px;
+    width: 120px;
+}
+
+#googleMap{
     background:yellow;
-   }
+}         
+
+#weather_wrapper {
+    position: fixed;
+    right: -290px;
+    top: 56px;
+    width: 340px;
+    height: 300px;
+    z-index: 50523;
+}
+
+    #show_weather {
+        width: 115px;
+        height: 30px;
+        border-bottom-left-radius: 5px;
+        background: #1f567c;
+        margin-left: -65px;
+        float: left;
+        cursor: pointer;
+    }
+
+    #show_weather p {
+        font-size: 18px;
+        color: white;
+        margin: 0;
+    }
+
+    #arrow_left {
+        height: 30px;
+        width: 30px;
+        margin-right: 5px;
+        background-image: url("../img/dropdown_arrow.png");
+        transform: rotate(90deg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        float: left;
+    }
