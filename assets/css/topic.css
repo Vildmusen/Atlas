@@ -1,7 +1,8 @@
 .link_holder{
     position: fixed;
-    bottom: 15vh;
+    bottom: 10vh;
     right: 10vh;
+    z-index: 100;
 }
 
     #link{
@@ -9,8 +10,8 @@
         height: 32px;
         margin-top: 10px;
         background:rgb(151, 190, 187);
+        border: 1px solid #343a40;
         border-radius: 5px;
-        z-index: 100;
     }
 
         #link:hover {
