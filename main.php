@@ -36,28 +36,28 @@ error_reporting(E_ALL | E_STRICT);
                             </div>
                         </a>
                         <div class="vote_wrapper">
-                            <div class="arrow_up"></div>
+                            <a href="vote.php?p_id='.$row['p_id'].'&val=true&c_id='.$location.'"><div class="arrow_up"></div></a>
                             <div class="vote_value"><p>'.$row['rating'].'</p></div>
-                            <div class="arrow_down"></div>
+                            <a href="vote.php?p_id='.$row['p_id'].'&val=false&c_id='.$location.'"><div class="arrow_down"></div></a>
                         </div>
 
-                <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>
-                <a href="topic.php?id='.$row['parent_id'].'&c_id='.$location.'" id="topic_link">
-                    <div class="comment_holder"><div class="comment_icon"></div><h4>'.getTotalComments($row['parent_id']).'</h4></div>
-                </a>
-                <a href="report.php?post='.$row['p_id'].'"><div class="report_field"><h4>report</h4></div></a>
-                <div class="timestamp"><h4>'.$row['date'].'</h4></div>
-
-
-
-
+                        <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>
+                        <a href="topic.php?id='.$row['parent_id'].'&c_id='.$location.'" id="topic_link">
+                            <div class="comment_holder"><div class="comment_icon"></div><h4>'.getTotalComments($row['parent_id']).'</h4></div>
+                        </a>
+                        <a href="report.php?post='.$row['p_id'].'"><div class="report_field"><h4>report</h4></div></a>
+                        <div class="timestamp"><h4>'.$row['date'].'</h4></div>
                     </div>
-
                 </div>';
             }
         }
         ?>
 
+    </div>
+
+    <div id="googleMap"> 
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9ufJ7Qk6fZyZkU8SWD1HOd4nCPnwexbI&callback=myMap"></script>
     </div>
 </body>
 </html>

@@ -148,4 +148,11 @@
             text-align:right;
         }
 
-            
+#googleMap{
+    position:fixed;
+    left: 3%;
+    width: 20%;
+    height: 250px;
+    margin-top: -200px;
+    background:yellow;
+   }         

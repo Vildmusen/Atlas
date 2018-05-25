@@ -36,7 +36,11 @@
                     Inloggad som: '.$_SESSION["name"].'
                 </div>';
             } else {
-                echo '</ul>';
+                echo '
+                <li class="nav-item">
+                    <a class="nav-link" href="login.php">Logga in</a>
+                </li>
+            </ul>';
             }
             ?>
     </div>
