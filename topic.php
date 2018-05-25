@@ -1,11 +1,11 @@
 <?php
 include 'include/bootstrap.php';
 include 'include/views/nav.php';
+include 'include/views/weatherandmap.php';
 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 
-$stmt = getcomments();
 $id = $_GET["id"];
 
 if (isset($_SESSION['u_id'])){
@@ -19,6 +19,17 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
 } else {
     $location = 1;
 }
+$object = getpostfromid($id)->fetch_assoc();
+if ($object['p_id']){
+    $archived = false;
+    $stmt = getcomments();
+    $style = '';
+} else {
+    $archived = true;
+    $stmt = getArchivedComments();
+    $style = 'id="archived"';
+}
+
 ?>
 
 <html>
@@ -33,7 +44,6 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                 <div class="container" id="link">
                     <a class="dropdown-item" id="answer_button" href="create.php">Skapa ny fråga</a>
                 </div>
-
                 <div class="container" id="link">
                     <a class="dropdown-item" id="answer_button" href="topic.php?id='.$id.'#bottomOfPage">Svara på fråga</a>
                 </div>
@@ -58,20 +68,20 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                 if ($rows["parent_id"] == $rows["p_id"]){
                     $location = $rows["l_id"];
                     echo
-                    '<div class="topic">
+                    '<div class="topic" '.$style.'>
                         <div class="height_wrapper">
                             <div class="breadtext">
                                 <h3> '.$rows['title'].'</h3>
                                 <p> '.$rows['description'].'</p>
-                            </div>
-
-                            <div class="vote_wrapper">
-                                <div class="arrow_up"></div>
-                                <div class="vote_value"><p>'.$rows['rating'].'</p></div>
-                                <div class="arrow_down"></div>
-                            </div>
-
-                            <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
+                            </div>';
+                            if (!$archived) {
+                                echo '<div class="vote_wrapper">
+                                    <div class="arrow_up"></div>
+                                    <div class="vote_value"><p>'.$rows['rating'].'</p></div>
+                                    <div class="arrow_down"></div>
+                                </div>';
+                            }
+                            echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
 
                             if ($rows['u_id'] != $u_id){
                                 echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
@@ -87,15 +97,15 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                             <div class="height_wrapper">
                                 <div class="breadtext_comment">
                                     <p> '.$rows['description'].'</p>
-                                </div>
-
-                                <div class="vote_wrapper">
-                                    <div class="arrow_up"></div>
-                                    <div class="vote_value"><p>'.$rows['rating'].'</p></div>
-                                    <div class="arrow_down"></div>
-                                </div>
-
-                                <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
+                                </div>';
+                                if (!$archived) {
+                                    echo '<div class="vote_wrapper">
+                                        <div class="arrow_up"></div>
+                                        <div class="vote_value"><p>'.$rows['rating'].'</p></div>
+                                        <div class="arrow_down"></div>
+                                    </div>';
+                                }
+                                echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
                                 if ($rows['u_id'] != $u_id){
                                     echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
                                 }
@@ -108,7 +118,7 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
             }
         }
 
-        if (isset($_SESSION["u_id"])){
+        if (isset($_SESSION["u_id"]) && !$archived){
             echo
             '<div class="comment">
                 <form name="commForm" action="process.php" method="post" onsubmit="return validateForm()">

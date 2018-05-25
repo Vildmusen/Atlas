@@ -18,7 +18,7 @@
     #create_button {
         padding: 3px 0 0 3px;
     }
-    
+
 #topic_wrapper {
     width:800px;
     margin-top:56px;
@@ -57,9 +57,12 @@
         background:rgb(151, 190, 187);
         border-radius: 5px;
     }
+    #archived {
+        background:rgb(128, 140, 149);
+    }
 
         .height_wrapper {
-            width: 100%;            
+            width: 100%;
             overflow: hidden;
         }
 
@@ -116,7 +119,7 @@
         }
 
         .comment_holder {
-            width: 10%;         
+            width: 10%;
             height: 30px;
             float: left;
         }
@@ -153,6 +156,6 @@
     left: 3%;
     width: 20%;
     height: 250px;
-    margin-top: -200px;
+    margin-top: 100px;
     background:yellow;
-   }         
+   }
