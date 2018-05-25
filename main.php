@@ -67,9 +67,11 @@ if (isset($_SESSION['u_id'])){
                 <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>
                 <a href="topic.php?id='.$row['parent_id'].'&c_id='.$location.'" id="topic_link">
                     <div class="comment_holder"><div class="comment_icon"></div><h4>'.getTotalComments($row['parent_id']).'</h4></div>
-                </a>
-                <a href="report.php?post='.$row['p_id'].'"><div class="report_field"><h4>report</h4></div></a>
-                <div class="timestamp"><h4>'.$row['date'].'</h4></div>
+                </a>';
+                if ($row['u_id'] != $u_id) {
+                echo '<a href="report.php?post='.$row['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
+                }
+                echo '<div class="timestamp"><h4>'.$row['date'].'</h4></div>
                     </div>
                 </div>';
             }
