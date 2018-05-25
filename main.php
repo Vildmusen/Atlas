@@ -54,5 +54,10 @@ error_reporting(E_ALL | E_STRICT);
         ?>
 
     </div>
+
+    <div id="googleMap"> 
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9ufJ7Qk6fZyZkU8SWD1HOd4nCPnwexbI&callback=myMap"></script>
+    </div>
 </body>
 </html>
