@@ -32,6 +32,12 @@ function getcomments(){
     $result = connect()->query($sql);
     return $result;
 }
+function getArchivedComments(){
+    $sql = "SELECT * FROM archived_post
+    ORDER BY p_id ASC";
+    $result = connect()->query($sql);
+    return $result;
+}
 function getuser($id=""){
     if ($id == ""){
         $sql = "SELECT * FROM user";
@@ -46,6 +52,10 @@ function getuser($id=""){
 function getpost($location){
     $query = "SELECT * FROM post WHERE l_id='$location'";
     return connect()->query($query);
+}
+function getArchivedPost($location){
+    $sql = "SELECT * FROM archived_post WHERE l_id='$location'";
+    return connect()->query($sql);
 }
 
 function getpostfromid($p_id){
@@ -102,11 +112,32 @@ function getTotalComments($parent_id) {
     $totalComments = $result->fetch_assoc();
     return $totalComments['COUNT(description)'] - 1;
 }
+function getTotalArchivedComments($parent_id) {
+    $sql = "SELECT COUNT(description) FROM archived_post WHERE parent_id = '$parent_id'";
+    $result = connect()->query($sql);
+    $totalComments = $result->fetch_assoc();
+    return $totalComments['COUNT(description)'] - 1;
+}
 
 function getPostRating($post_id) {
     $sql = "SELECT post_rating FROM rating WHERE p_id = '$post_id'";
     $result = connect()->query($sql);
     $postRating = $result->fetch_assoc();
     return $postRating['post_rating'];
+}
+function checkDateOfPosts() {
+    $sql = "SELECT * FROM post WHERE `date` < (CURRENT_TIMESTAMP - interval '7' day)";
+    $result = connect()->query($sql);
+    return $result;
+}
+function moveEntry($post) {
+    $sql = "INSERT INTO archived_post (p_id, u_id, title, description, l_id, rating, parent_id)
+    SELECT p_id, u_id, title, description, l_id, rating, parent_id FROM post
+    WHERE p_id = '$post'";
+    $result = connect()->query($sql);
+}
+function deleteEntry($post){
+    $sql = "DELETE FROM post WHERE p_id = '$post'";
+    $result = connect()->query($sql);
 }
 ?>
