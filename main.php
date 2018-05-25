@@ -4,6 +4,7 @@
 <?php
 include 'include/bootstrap.php';
 include 'include/views/nav.php';
+include 'include/views/weatherandmap.php';
 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
@@ -52,9 +53,9 @@ error_reporting(E_ALL | E_STRICT);
                             </div>
                         </a>
                         <div class="vote_wrapper">
-                            <div class="arrow_up"></div>
+                            <a href="vote.php?p_id='.$row['p_id'].'&val=true&c_id='.$location.'&from=main"><div class="arrow_up"></div></a>
                             <div class="vote_value"><p>'.$row['rating'].'</p></div>
-                            <div class="arrow_down"></div>
+                            <a href="vote.php?p_id='.$row['p_id'].'&val=false&c_id='.$location.'&from=main"><div class="arrow_down"></div></a>
                         </div>
 
                 <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>
@@ -92,5 +93,7 @@ error_reporting(E_ALL | E_STRICT);
         ?>
 
     </div>
+
+
 </body>
 </html>

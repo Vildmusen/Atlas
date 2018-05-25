@@ -150,3 +150,12 @@
             float: right;
             text-align:right;
         }
+
+#googleMap{
+    position:fixed;
+    left: 3%;
+    width: 20%;
+    height: 250px;
+    margin-top: 100px;
+    background:yellow;
+   }

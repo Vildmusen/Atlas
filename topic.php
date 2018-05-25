@@ -1,6 +1,7 @@
 <?php
 include 'include/bootstrap.php';
 include 'include/views/nav.php';
+include 'include/views/weatherandmap.php';
 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
@@ -83,7 +84,7 @@ if ($object['p_id']){
                             echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
 
                             if ($rows['u_id'] != $u_id){
-                                echo '<div class="report_field"><h4>report</h4></div>';
+                                echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
                             }
 
                             echo '<div class="timestamp"><h4>'.$rows['date'].'</h4></div>
@@ -106,7 +107,7 @@ if ($object['p_id']){
                                 }
                                 echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
                                 if ($rows['u_id'] != $u_id){
-                                    echo '<div class="report_field"><h4>report</h4></div>';
+                                    echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
                                 }
                                 echo '<div class="timestamp"><h4>'.$rows['date'].'</h4></div>
                             </div>
