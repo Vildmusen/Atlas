@@ -72,11 +72,11 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                             </div>
 
                             <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
-                            
+
                             if ($rows['u_id'] != $u_id){
-                                echo '<div class="report_field"><h4>report</h4></div>';
+                                echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
                             }
-                            
+
                             echo '<div class="timestamp"><h4>'.$rows['date'].'</h4></div>
                         </div>
                     </div>';
@@ -97,7 +97,7 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
 
                                 <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
                                 if ($rows['u_id'] != $u_id){
-                                    echo '<div class="report_field"><h4>report</h4></div>';
+                                    echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
                                 }
                                 echo '<div class="timestamp"><h4>'.$rows['date'].'</h4></div>
                             </div>
