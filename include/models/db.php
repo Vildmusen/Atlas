@@ -130,16 +130,18 @@ function getPostUserRating($u_id, $post_id){
 
 function allowedToVote($u_id, $post_id, $val){
     $result = getPostUserRating($u_id, $post_id);
-    if($result->fetch_assoc() != null){
-        $ratingArr = $result->fetch_assoc();
-        if($val != $ratingArr['vote_value']){
+    $vote = $result->fetch_assoc();
+
+    if($vote['vote_value']){
+        if($val != $vote['vote_value']){
             $sql = "UPDATE rating SET vote_value = '$val' WHERE u_id = '$u_id' AND p_id = '$post_id'";
             connect()->query($sql);
             return "changed";
         }
         return "false";
+    } else {
+        return "new";
     }
-    return "new";
 }
 
 function saveVote($u_id, $post_id, $post_rating, $val){

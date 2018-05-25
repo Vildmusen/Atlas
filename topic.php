@@ -66,9 +66,9 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                             </div>
 
                             <div class="vote_wrapper">
-                                <div class="arrow_up"></div>
+                                <a href="vote.php?p_id='.$rows['p_id'].'&val=true&c_id='.$location.'&from=topic"><div class="arrow_up"></div></a>
                                 <div class="vote_value"><p>'.$rows['rating'].'</p></div>
-                                <div class="arrow_down"></div>
+                                <a href="vote.php?p_id='.$rows['p_id'].'&val=false&c_id='.$location.'&from=topic"><div class="arrow_down"></div></a>
                             </div>
 
                             <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
@@ -90,9 +90,9 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                                 </div>
 
                                 <div class="vote_wrapper">
-                                    <div class="arrow_up"></div>
+                                    <a href="vote.php?p_id='.$rows['p_id'].'&val=true&c_id='.$location.'&from=topic"><div class="arrow_up"></div></a>
                                     <div class="vote_value"><p>'.$rows['rating'].'</p></div>
-                                    <div class="arrow_down"></div>
+                                    <a href="vote.php?p_id='.$rows['p_id'].'&val=false&c_id='.$location.'&from=topic"><div class="arrow_down"></div></a>
                                 </div>
 
                                 <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
