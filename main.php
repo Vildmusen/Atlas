@@ -37,9 +37,9 @@ error_reporting(E_ALL | E_STRICT);
                             </div>
                         </a>
                         <div class="vote_wrapper">
-                            <a href="vote.php?p_id='.$row['p_id'].'&val=true&c_id='.$location.'"><div class="arrow_up"></div></a>
+                            <a href="vote.php?p_id='.$row['p_id'].'&val=true&c_id='.$location.'&from=main"><div class="arrow_up"></div></a>
                             <div class="vote_value"><p>'.$row['rating'].'</p></div>
-                            <a href="vote.php?p_id='.$row['p_id'].'&val=false&c_id='.$location.'"><div class="arrow_down"></div></a>
+                            <a href="vote.php?p_id='.$row['p_id'].'&val=false&c_id='.$location.'&from=main"><div class="arrow_down"></div></a>
                         </div>
 
                         <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>

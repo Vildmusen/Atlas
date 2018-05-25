@@ -67,17 +67,17 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                             </div>
 
                             <div class="vote_wrapper">
-                                <div class="arrow_up"></div>
+                                <a href="vote.php?p_id='.$rows['p_id'].'&val=true&c_id='.$location.'&from=topic"><div class="arrow_up"></div></a>
                                 <div class="vote_value"><p>'.$rows['rating'].'</p></div>
-                                <div class="arrow_down"></div>
+                                <a href="vote.php?p_id='.$rows['p_id'].'&val=false&c_id='.$location.'&from=topic"><div class="arrow_down"></div></a>
                             </div>
 
                             <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
-                            
+
                             if ($rows['u_id'] != $u_id){
-                                echo '<div class="report_field"><h4>report</h4></div>';
+                                echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
                             }
-                            
+
                             echo '<div class="timestamp"><h4>'.$rows['date'].'</h4></div>
                         </div>
                     </div>';
@@ -91,14 +91,14 @@ if (isset($_GET['c_id'])){ //behöver säkrare koll på vad som skickas med.
                                 </div>
 
                                 <div class="vote_wrapper">
-                                    <div class="arrow_up"></div>
+                                    <a href="vote.php?p_id='.$rows['p_id'].'&val=true&c_id='.$location.'&from=topic"><div class="arrow_up"></div></a>
                                     <div class="vote_value"><p>'.$rows['rating'].'</p></div>
-                                    <div class="arrow_down"></div>
+                                    <a href="vote.php?p_id='.$rows['p_id'].'&val=false&c_id='.$location.'&from=topic"><div class="arrow_down"></div></a>
                                 </div>
 
                                 <div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
                                 if ($rows['u_id'] != $u_id){
-                                    echo '<div class="report_field"><h4>report</h4></div>';
+                                    echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
                                 }
                                 echo '<div class="timestamp"><h4>'.$rows['date'].'</h4></div>
                             </div>

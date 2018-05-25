@@ -43,7 +43,9 @@
                                 <div class="creator"><h4>'.getuser($post['u_id'])['name'].'</h4></div>
                                 <div class="timestamp"><h4>'.$post['date'].'</h4></div>
                             </div>
-                        </div>';
+                        </div>
+                        <input type="hidden" value="'.$post['p_id'].'" name="hidden_id">
+                        <input type="hidden" value="'.$post['l_id'].'" name="hidden_location">';
                 ?>
                 <input type="submit" value="Skicka anmälan" id="new-button">
                 </form>

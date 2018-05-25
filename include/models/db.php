@@ -130,16 +130,18 @@ function getPostUserRating($u_id, $post_id){
 
 function allowedToVote($u_id, $post_id, $val){
     $result = getPostUserRating($u_id, $post_id);
-    if($result->fetch_assoc() != null){
-        $ratingArr = $result->fetch_assoc();
-        if($val != $ratingArr['vote_value']){
+    $vote = $result->fetch_assoc();
+
+    if($vote['vote_value']){
+        if($val != $vote['vote_value']){
             $sql = "UPDATE rating SET vote_value = '$val' WHERE u_id = '$u_id' AND p_id = '$post_id'";
             connect()->query($sql);
             return "changed";
         }
         return "false";
+    } else {
+        return "new";
     }
-    return "new";
 }
 
 function saveVote($u_id, $post_id, $post_rating, $val){
@@ -152,5 +154,24 @@ function saveVote($u_id, $post_id, $post_rating, $val){
         VALUES ('$u_id', '$post_id', '$post_rating', '$val')";
         connect()->query($sql);
     }
+}
+
+function reportPost(){
+  $connection = connect();
+  $reason = mysqli_real_escape_string($connection, $_POST["reason"]);
+  $p_id = mysqli_real_escape_string($connection, $_POST["hidden_id"]);
+  $u_id = $_SESSION['u_id'];
+  $sql = "INSERT INTO flagged_post (p_id, u_id, reason)
+  VALUES ('$p_id', '$u_id', '$reason')";
+  $stmt = $connection->query($sql);
+}
+
+function getReportedPost(){
+  $connection = connect();
+  $p_id = mysqli_real_escape_string($connection, $_POST["hidden_id"]);
+  $u_id = $_SESSION['u_id'];
+  $sql = "SELECT p_id, u_id FROM flagged_post WHERE u_id = '$u_id' AND p_id = $p_id";
+  $stmt = $connection->query($sql);
+  return $stmt;
 }
 ?>

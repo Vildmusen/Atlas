@@ -21,6 +21,7 @@ if(!(isset($_SESSION["u_id"]))){
         }
         
         $stmt = allowedToVote($user, $post_id, $val);
+        echo $stmt;
 
         if($stmt != "false"){
             if($stmt == "changed"){
@@ -34,13 +35,19 @@ if(!(isset($_SESSION["u_id"]))){
             }
 
             ratePost($post_id, $temp);
-
             saveVote($user, $post_id, getPostRating($post_id), $val);
             
         }
 
     }
 }
+
 $city = $_GET['c_id'];
-header("Location: main.php?c_id=$city");
+
+if($_GET['from'] == "main"){
+    header("Location: main.php?c_id=$city");
+} else {
+    $post = $_GET['p_id'];
+    header("Location: topic.php?id=$post&c_id=$city");
+}
 ?>
