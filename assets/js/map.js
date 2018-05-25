@@ -1,7 +1,7 @@
-function myMap() {
+function myMap(city) {
     
     var mapOptions = {
-        center: new google.maps.LatLng(59.85856380000001,17.638926699999956),
+        center: new google.maps.LatLng("uppsala"),
         zoom:9,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }

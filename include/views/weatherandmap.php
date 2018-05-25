@@ -1,7 +1,16 @@
-<div id="googleMap">
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9ufJ7Qk6fZyZkU8SWD1HOd4nCPnwexbI&callback=myMap">
-</script>
-    </div>
+<?php
+if(isset($_GET['c_id'])){
+        $c_id = $_GET['c_id'];
+        $city = getcity($c_id);
+        $city = $city['city'];
+        echo '                
+                <div id="googleMap">
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9ufJ7Qk6fZyZkU8SWD1HOd4nCPnwexbI&callback=myMap"></script>
+                </div>
+
+        ';
+}
+?>
 
 <div id="weather_wrapper">
     <div id="show_weather" onclick="show_weather()"><div id="arrow_left"></div><p>Weather</p></div>
