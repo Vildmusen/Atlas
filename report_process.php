@@ -8,6 +8,7 @@ if(isset($_SESSION["u_id"])){
     header("Refresh: 2, URL=main.php?c_id=".$_POST['hidden_location']);
   } else echo '<h1>Du har redan anmält detta inlägg.</h1>';
             header ("Refresh: 2, URL=main.php?c_id=".$_POST["hidden_location"]."");
-} else  header("Location: index.php");
+} else echo '<h1>Du måste vara inloggad för att kunna anmäla inlägg.</h1>';
+    header("Refresh: 2, URL=login.php");
 
 ?>
