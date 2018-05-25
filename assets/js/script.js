@@ -25,9 +25,3 @@ function show_hide_drop(id) {
     }
 
 }
-
-// $(document).ready(function(){
-//     $("#location_button").click(function(){
-//         $("dropdown_list").show();
-//     });
-// });
