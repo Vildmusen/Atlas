@@ -81,7 +81,7 @@ if ($object['p_id']){
                                     <div class="arrow_down"></div>
                                 </div>';
                             }
-                            echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
+                            echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].' : '.getuser($rows['u_id'])['status'].'</h4></div>';
 
                             if ($rows['u_id'] != $u_id){
                                 echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
@@ -105,7 +105,7 @@ if ($object['p_id']){
                                         <div class="arrow_down"></div>
                                     </div>';
                                 }
-                                echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
+                                echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].' : '.getuser($rows['u_id'])['status'].'</h4></div>';
                                 if ($rows['u_id'] != $u_id){
                                     echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
                                 }

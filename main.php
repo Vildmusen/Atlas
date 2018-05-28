@@ -89,7 +89,7 @@ if (isset($_SESSION['u_id'])){
                                 <p> '.$row['description'].'</p>
                             </div>
                         </a>
-                <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>
+                <div class="creator"><h4>'.getuser($row['u_id'])['name'].' : '.getuser($row['u_id'])['status'].'</h4></div>
                 <a href="topic.php?id='.$row['parent_id'].'&c_id='.$location.'" id="topic_link">
                     <div class="comment_holder"><div class="comment_icon"></div><h4>'.getTotalArchivedComments($row['parent_id']).'</h4></div>
                 </a>';

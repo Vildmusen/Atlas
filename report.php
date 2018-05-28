@@ -40,7 +40,7 @@
                                     <p> '.$post['description'].'</p>
                                 </div>
 
-                                <div class="creator"><h4>'.getuser($post['u_id'])['name'].'</h4></div>
+                                <div class="creator"><h4>'.getuser($post['u_id'])['name'].' : '.getuser($post['u_id'])['status'].'</h4></div>
                                 <div class="timestamp"><h4>'.$post['date'].'</h4></div>
                             </div>
                         </div>
