@@ -52,7 +52,7 @@ if (isset($_SESSION['u_id'])){
             if($row['p_id'] == $row['parent_id']){
                 echo
                 '<div class="topic">
-                    <div class="height_wrapper">
+                    <div class="status3">
                         <a href="topic.php?id='.$row['parent_id'].'&c_id='.$location.'" id="topic_link">
                             <div class="breadtext">
                                 <h3> '.$row['title'].'</h3>
