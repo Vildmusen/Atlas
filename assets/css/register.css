@@ -7,6 +7,10 @@
 
 }
 
+#register_user h3 {
+    margin-left: 80px;
+}
+
 #register_box {
     width: 100%;
     border-radius: 5px;
@@ -16,9 +20,6 @@
     padding-bottom: 1px;
 }
 
-#register_user h3 {
-    margin-left: 80px;
-}
     .Register {
         margin-bottom: 10px;
         margin-left: 25px;
@@ -32,4 +33,53 @@
         #button_save {
             margin-left: 22px;
                           
+        }
+
+#login_wrapper {
+        width: 30%;
+        min-width: 330px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+}
+
+    #login_title {
+        width: 100%;
+        border-radius: 5px;
+        background: rgb(151, 190, 187);
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    #login_box {
+        width: 100%;
+        border-radius: 5px;
+        background: rgb(151, 190, 187);
+        padding: 10px;
+    }
+
+        #login_box h3 {
+            margin-left: 5%;
+            padding: 5px 0 5px 0 ;
+        }
+
+        #login_box form {
+            margin: 0;
+        }
+
+        #login_box input[type=email], input[type=password] {
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-bottom: 5px;
+            width: 90%;
+            height: 30px;
+        }
+
+        #login_button {
+            margin-left: 35%;
+            margin-right: 35%;
+            margin-top: 10px;
+            width: 30%;
+            height: 30px;
         }
