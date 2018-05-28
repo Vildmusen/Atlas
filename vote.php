@@ -46,8 +46,14 @@ $city = $_GET['c_id'];
 
 if($_GET['from'] == "main"){
     header("Location: main.php?c_id=$city");
-} else {
+} else if($_GET['from'] == "topic") {
     $post = $_GET['p_id'];
     header("Location: topic.php?id=$post&c_id=$city");
+} else {
+    $p_id = $_GET['p_id'];
+    $post = getpostfromid($p_id);
+    $postarr = $post->fetch_assoc();
+    $parent = $postarr['parent_id'];
+    header("Location: topic.php?id=$parent&c_id=$city");
 }
 ?>

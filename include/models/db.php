@@ -30,7 +30,8 @@ function makeUser($salt){
 }
 
 function getcomments(){
-    $sql = "SELECT * FROM post";
+    $sql = "SELECT * FROM post
+    ORDER BY p_id ASC";
     $result = connect()->query($sql);
     return $result;
 }

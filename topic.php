@@ -76,12 +76,12 @@ if ($object['p_id']){
                             </div>';
                             if (!$archived) {
                                 echo '<div class="vote_wrapper">
-                                    <div class="arrow_up"></div>
+                                    <a href="vote.php?p_id='.$rows['p_id'].'&val=true&c_id='.$location.'&from=topic"><div class="arrow_up"></div></a>
                                     <div class="vote_value"><p>'.$rows['rating'].'</p></div>
-                                    <div class="arrow_down"></div>
+                                    <a href="vote.php?p_id='.$rows['p_id'].'&val=false&c_id='.$location.'&from=topic"><div class="arrow_down"></div></a>
                                 </div>';
                             }
-                            echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
+                            echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].' : '.getuser($rows['u_id'])['status'].'</h4></div>';
 
                             if ($rows['u_id'] != $u_id){
                                 echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
@@ -100,12 +100,12 @@ if ($object['p_id']){
                                 </div>';
                                 if (!$archived) {
                                     echo '<div class="vote_wrapper">
-                                        <div class="arrow_up"></div>
+                                        <a href="vote.php?p_id='.$rows['p_id'].'&val=true&c_id='.$location.'&from=comment"><div class="arrow_up"></div></a>
                                         <div class="vote_value"><p>'.$rows['rating'].'</p></div>
-                                        <div class="arrow_down"></div>
+                                        <a href="vote.php?p_id='.$rows['p_id'].'&val=false&c_id='.$location.'&from=comment"><div class="arrow_down"></div></a>
                                     </div>';
                                 }
-                                echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].'</h4></div>';
+                                echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].' : '.getuser($rows['u_id'])['status'].'</h4></div>';
                                 if ($rows['u_id'] != $u_id){
                                     echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
                                 }
