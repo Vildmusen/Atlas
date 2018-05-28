@@ -91,7 +91,7 @@ if (isset($_SESSION['u_id'])){
                     <div class="comment_holder"><div class="comment_icon"></div><h4>'.getTotalComments($row['parent_id']).'</h4></div>
                 </a>';
                 if ($row['u_id'] != $u_id) {
-                    echo '<a href="report.php?post='.$row['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
+                    echo '<a href="report.php?post='.$row['p_id'].'"><div class="report_field"><h4>Anmäl</h4></div></a>';
                 }
                 echo '<div class="timestamp"><h4>'.$row['date'].'</h4></div>
                     </div>
