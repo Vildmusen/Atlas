@@ -25,3 +25,7 @@ function show_hide_drop(id) {
     }
 
 }
+
+function setBackground(c_id) {
+    document.body.style.backgroundImage = "url(assets/img/" + c_id + ".jpg)";
+}

@@ -33,7 +33,7 @@ if ($object['p_id']){
 ?>
 
 <html>
-<body>
+<body onload="setBackground(<?php echo $_GET['c_id']; ?>)">
     <a name="topOfPage"></a>
 
     <!-- GÖMMA OM MAN ÄR LÄNGST NERE? -->

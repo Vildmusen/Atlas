@@ -21,9 +21,7 @@
     <link rel="stylesheet" href="assets/css/omoss.css">
     <link rel="stylesheet" href="assets/css/termsandcons.css">
     <link rel="stylesheet" href="assets/css/register.css">
-    <link rel="stylesheet" href="assets/css/create.css">
-    
-    
+    <link rel="stylesheet" href="assets/css/create.css">    
 
     <link rel="icon" type="image/png" href="assets/img/faviconoriginal.jpg" sizes="32x32" />
 

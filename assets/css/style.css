@@ -1,8 +1,8 @@
 body{
     background: rgb(227, 240, 239);
-    /* background-image: url(../img/uppsala-skyline.png);
     background-repeat: no-repeat;
-    background-position: 100% 100%; */
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 #err {
@@ -36,6 +36,14 @@ textarea {
         color: #fff;
         float: left;
     }
+
+        #nostyle_link {
+            color: white;
+        }
+
+        #nostyle_link:hover {
+            text-decoration: none;
+        }
 
     #location_dropdown{
         width: 100px;

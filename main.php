@@ -17,7 +17,7 @@ if (isset($_SESSION['u_id'])){
 }
 
 ?>
-<body>
+<body onload="setBackground(<?php echo $_GET['c_id']; ?>)">
 
     <?php
         if(isset($_SESSION['u_id'])){
