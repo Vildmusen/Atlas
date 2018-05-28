@@ -69,7 +69,7 @@ if ($object['p_id']){
                     $location = $rows["l_id"];
                     echo
                     '<div class="topic" '.$style.'>
-                        <div class="'.decideTier(getuser($row['u_id'])['status']).'">
+                        <div class="'.decideTier(getuser($rows['u_id'])['status']).'">
                             <div class="breadtext">
                                 <h3> '.$rows['title'].'</h3>
                                 <p> '.$rows['description'].'</p>
@@ -81,7 +81,7 @@ if ($object['p_id']){
                                     <a href="vote.php?p_id='.$rows['p_id'].'&val=false&c_id='.$location.'&from=topic"><div class="arrow_down"></div></a>
                                 </div>';
                             }
-                            echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].' : '.getuser($rows['u_id'])['status'].'</h4></div>';
+                            echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].' : '.showTier(getuser($rows['u_id'])['status']).'</h4></div>';
 
                             if ($rows['u_id'] != $u_id){
                                 echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
@@ -94,7 +94,7 @@ if ($object['p_id']){
                 } else {
                     echo
                         '<div class="comment">
-                            <div class="'.decideTier(getuser($row['u_id'])['status']).'">
+                            <div class="'.decideTier(getuser($rows['u_id'])['status']).'">
                                 <div class="breadtext_comment">
                                     <p> '.$rows['description'].'</p>
                                 </div>';
@@ -105,7 +105,7 @@ if ($object['p_id']){
                                         <a href="vote.php?p_id='.$rows['p_id'].'&val=false&c_id='.$location.'&from=comment"><div class="arrow_down"></div></a>
                                     </div>';
                                 }
-                                echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].' : '.getuser($rows['u_id'])['status'].'</h4></div>';
+                                echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].' : '.showTier(getuser($rows['u_id'])['status']).'</h4></div>';
                                 if ($rows['u_id'] != $u_id){
                                     echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
                                 }
