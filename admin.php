@@ -16,7 +16,7 @@
                     echo
                     '<div class="topic">
                         <div class="'.decideTier(getuser($row['u_id'])['status']).'">';
-                        if(isset($_SESSION['admin'])){ echo '<a href="delete_post.php?p_id='.$row['p_id'].'"><div id="delete_post"></div></a><a href="delete_user.php?u_id='.$row['u_id'].'"><div id="delete_user"></div></a>'; }
+                        if(isset($_SESSION['admin'])){ echo '<a href="delete_post.php?p_id='.$row['p_id'].'&from=admin"><div id="delete_post"></div></a><a href="delete_user.php?u_id='.$row['u_id'].'&from=admin"><div id="delete_user"></div></a>'; }
                     echo'
                             <a href="topic.php?id='.$row['parent_id'].'&c_id='.$location.'" id="topic_link">
                                 <div class="breadtext">
