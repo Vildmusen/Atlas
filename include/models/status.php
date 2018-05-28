@@ -6,6 +6,9 @@ function decideTier($rating){
     if ($tier > $maxTier) {
         $tier = $maxTier;
     }
+    else if ($tier < 0) {
+        $tier = 0;
+    }
     return "status".$tier;
 }
 
@@ -15,9 +18,12 @@ function showTier($rating){
     if ($tier > $maxTier) {
         $tier = $maxTier;
     }
+    else if ($tier < 0) {
+        $tier = 0;
+    }
     if ($tier == 0){
-        return "pleb";
-    } 
+        return "Småsvensk";
+    }
     if ($tier == 1){
         return "Lagomsvensk";
     } else {
