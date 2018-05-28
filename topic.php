@@ -82,7 +82,7 @@ if ($object['p_id']){
                             echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].' : '.showTier(getuser($rows['u_id'])['status']).'</h4></div>';
 
                             if ($rows['u_id'] != $u_id){
-                                echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
+                                echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>Anmäl</h4></div></a>';
                             }
 
                             echo '<div class="timestamp"><h4>'.$rows['date'].'</h4></div>
@@ -108,7 +108,7 @@ if ($object['p_id']){
                                 }
                                 echo '<div class="creator"><h4>'.getuser($rows['u_id'])['name'].' : '.showTier(getuser($rows['u_id'])['status']).'</h4></div>';
                                 if ($rows['u_id'] != $u_id){
-                                    echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>report</h4></div></a>';
+                                    echo '<a href="report.php?post='.$rows['p_id'].'"><div class="report_field"><h4>Anmäl</h4></div></a>';
                                 }
                                 echo '<div class="timestamp"><h4>'.$rows['date'].'</h4></div>
                             </div>

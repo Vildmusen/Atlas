@@ -237,4 +237,21 @@ function showReportedPost(){
   $stmt = $connection->query($sql);
   return $stmt;
 }
+function getReports($p_id){
+    $sql = "SELECT * FROM flagged_post WHERE p_id='$p_id'";
+    $stmt = connect()->query($sql);
+    return $stmt;
+}
+function getReportType($report){
+    $sql = "SELECT * FROM reason WHERE reason='$report'";
+    $stmt = connect()->query($sql);
+    $val = $stmt->fetch_assoc();
+    return $val['r_id'];
+}
+function getReportTitle($report){
+    $sql = "SELECT * FROM reason WHERE r_id='$report'";
+    $stmt = connect()->query($sql);
+    $val = $stmt->fetch_assoc();
+    return $val['reason'];
+}
 ?>
