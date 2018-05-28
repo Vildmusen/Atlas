@@ -69,7 +69,7 @@ if ($object['p_id']){
                     $location = $rows["l_id"];
                     echo
                     '<div class="topic" '.$style.'>
-                        <div class="height_wrapper">
+                        <div class="'.decideTier(getuser($row['u_id'])['status']).'">
                             <div class="breadtext">
                                 <h3> '.$rows['title'].'</h3>
                                 <p> '.$rows['description'].'</p>
@@ -94,7 +94,7 @@ if ($object['p_id']){
                 } else {
                     echo
                         '<div class="comment">
-                            <div class="height_wrapper">
+                            <div class="'.decideTier(getuser($row['u_id'])['status']).'">
                                 <div class="breadtext_comment">
                                     <p> '.$rows['description'].'</p>
                                 </div>';
