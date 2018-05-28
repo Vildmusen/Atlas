@@ -170,12 +170,16 @@ function saveVote($u_id, $post_id, $post_rating, $val){
         connect()->query($sql);
     }
 }
-// function updateUserRating($id, $value) {
-//     $sql = "UPDATE ...";
-// }
-// function getUserRating($id) {
-//     $sql = "SELECT rating FROM user";
-// }
+function updateUserStatus($id, $value) {
+    $sql = "UPDATE user SET status = '$value' WHERE u_id = '$id'";
+    connect()->query($sql);
+}
+function getUserStatus($id) {
+    $sql = "SELECT status FROM user";
+    $result = connect()->query($sql);
+    $val = $result->fetch_assoc();
+    return $val['status'];
+}
 
 function reportPost(){
   $connection = connect();

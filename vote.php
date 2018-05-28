@@ -36,7 +36,7 @@ if(!(isset($_SESSION["u_id"]))){
 
             ratePost($post_id, $val);
             saveVote($user, $post_id, getPostRating($post_id), $temp);
-
+            updateUserStatus($user,getUserStatus($user)+$val);
 
         }
 
