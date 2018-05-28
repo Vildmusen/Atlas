@@ -46,7 +46,7 @@ function getuser($id=""){
         $result = connect()->query($sql);
         return $result;
     } else {
-        $sql = "SELECT name FROM user WHERE u_id='".$id."'";
+        $sql = "SELECT * FROM user WHERE u_id='".$id."'";
         $result = connect()->query($sql);
         return $result->fetch_assoc();
     }
