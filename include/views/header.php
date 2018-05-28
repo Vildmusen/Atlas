@@ -11,7 +11,7 @@
     <script src="assets/js/script.js"></script>
     <script src="assets/js/validation.js"></script>
     <script src="assets/js/map.js"></script>
-    
+
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="assets/css/omoss.css">
     <link rel="stylesheet" href="assets/css/termsandcons.css">
     <link rel="stylesheet" href="assets/css/register.css">
-    <link rel="stylesheet" href="assets/css/create.css">    
+    <link rel="stylesheet" href="assets/css/create.css">
+    <link rel="stylesheet" href="assets/css/admin.css">   
 
     <link rel="icon" type="image/png" href="assets/img/faviconoriginal.jpg" sizes="32x32" />
 
