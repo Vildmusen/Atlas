@@ -10,7 +10,7 @@
         <div class="conatiner" id="link_box">
             <a href="login.php"><button class="btn btn-block">Logga in</button></a>
             <a href="register.php"><button class="btn btn-block">Registrera</button></a>
-            <a href="main.php"><button class="btn btn-block" id="center_button">Utforska</button></a>
+            <a href="main.php?c_id=1"><button class="btn btn-block" id="center_button">Utforska</button></a>
         </div>
     </main>
 </body>

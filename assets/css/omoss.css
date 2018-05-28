@@ -1,5 +1,5 @@
 #content{
-    width: 70%;
+    width: 50%;
     min-width: 330px;
     position: absolute;
     top: 50%;
@@ -25,12 +25,14 @@
 }
 
 #terms_cons {
-    margin-left:40%;
-    width: 40%;
+    position: relative;
+    left: 50%;
+    margin-left:-100px;
+    width: 200px;
+    text-align: center;
 }
 
 #terms_cons a {
-    margin-left: 20px;
     text-decoration: none;
     color: rgb(95, 139, 136);
 }
