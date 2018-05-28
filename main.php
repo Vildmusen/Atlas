@@ -52,7 +52,7 @@ if (isset($_SESSION['u_id'])){
             if($row['p_id'] == $row['parent_id']){
                 echo
                 '<div class="topic">
-                    <div class="status3">
+                    <div class="'.decideTier(getuser($row['u_id'])['status']).'">
                         <a href="topic.php?id='.$row['parent_id'].'&c_id='.$location.'" id="topic_link">
                             <div class="breadtext">
                                 <h3> '.$row['title'].'</h3>
@@ -82,14 +82,14 @@ if (isset($_SESSION['u_id'])){
             if($row['p_id'] == $row['parent_id']){
                 echo
                 '<div class="topic" id="archived">
-                    <div class="height_wrapper">
+                    <div class="'.decideTier(getuser($row['u_id'])['status']).'">
                         <a href="topic.php?id='.$row['parent_id'].'&c_id='.$location.'" id="topic_link">
                             <div class="breadtext">
                                 <h3> '.$row['title'].'</h3>
                                 <p> '.$row['description'].'</p>
                             </div>
                         </a>
-                <div class="creator"><h4>'.getuser($row['u_id'])['name'].'</h4></div>
+                <div class="creator"><h4>'.getuser($row['u_id'])['name'].' : '.getuser($row['u_id'])['status'].'</h4></div>
                 <a href="topic.php?id='.$row['parent_id'].'&c_id='.$location.'" id="topic_link">
                     <div class="comment_holder"><div class="comment_icon"></div><h4>'.getTotalArchivedComments($row['parent_id']).'</h4></div>
                 </a>';

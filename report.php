@@ -34,13 +34,13 @@
                     $post = getpostfromid($_GET['post'])-> fetch_assoc();
                     echo '
                         <div class="comment_report">
-                            <div class="height_wrapper">
+                            <div class="'.decideTier(getuser($row['u_id'])['status']).'">
                                 <div class="breadtext">
                                     <h3> '.$post['title'].'</h3>
                                     <p> '.$post['description'].'</p>
                                 </div>
 
-                                <div class="creator"><h4>'.getuser($post['u_id'])['name'].'</h4></div>
+                                <div class="creator"><h4>'.getuser($post['u_id'])['name'].' : '.getuser($post['u_id'])['status'].'</h4></div>
                                 <div class="timestamp"><h4>'.$post['date'].'</h4></div>
                             </div>
                         </div>
