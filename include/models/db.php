@@ -206,11 +206,13 @@ function getReportedPost(){
   $stmt = $connection->query($sql);
   return $stmt;
 }
+
 function checkDateOfPosts() {
     $sql = "SELECT * FROM post WHERE `date` < (CURRENT_TIMESTAMP - interval '7' day)";
     $result = connect()->query($sql);
     return $result;
 }
+
 function moveEntry($post) {
     $sql = "INSERT INTO archived_post (p_id, u_id, title, description, l_id, rating, parent_id)
     SELECT p_id, u_id, title, description, l_id, rating, parent_id FROM post
@@ -220,5 +222,19 @@ function moveEntry($post) {
 function deleteEntry($post){
     $sql = "DELETE FROM post WHERE p_id = '$post'";
     $result = connect()->query($sql);
+}
+
+function deleteUser($user){
+    $sql = "DELETE FROM user WHERE u_id = '$user'";
+    $result = connect()->query($sql);
+}
+
+function showReportedPost(){
+  $connection = connect();
+  $sql = "SELECT * FROM post p
+              JOIN flagged_post fp ON
+                  fp.p_id = p.p_id";
+  $stmt = $connection->query($sql);
+  return $stmt;
 }
 ?>

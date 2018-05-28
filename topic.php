@@ -65,7 +65,9 @@ if ($object['p_id']){
                     echo
                     '<div class="topic" '.$style.'>
                         <a name="'.$rows["p_id"].'"></a>
-                        <div class="'.decideTier(getuser($rows['u_id'])['status']).'">
+                        <div class="'.decideTier(getuser($rows['u_id'])['status']).'">';
+                            if(isset($_SESSION['admin'])){ echo '<a href="delete_post.php?p_id='.$rows['p_id'].'"><div id="delete_post"></div></a><a href="delete_user.php?u_id='.$rows['u_id'].'"><div id="delete_user"></div></a>'; }
+                            echo'
                             <div class="breadtext">
                                 <h3> '.$rows['title'].'</h3>
                                 <p> '.$rows['description'].'</p>
@@ -91,7 +93,9 @@ if ($object['p_id']){
                     echo
                         '<div class="comment">
                             <a name="'.$rows["p_id"].'"></a>
-                            <div class="'.decideTier(getuser($rows['u_id'])['status']).'">
+                            <div class="'.decideTier(getuser($rows['u_id'])['status']).'">';
+                                if(isset($_SESSION['admin'])){ echo '<a href="delete_post.php?p_id='.$rows['p_id'].'"><div id="delete_post"></div></a><a href="delete_user.php?u_id='.$rows['u_id'].'"><div id="delete_user"></div></a>'; }
+                                echo'
                                 <div class="breadtext_comment">
                                     <p> '.$rows['description'].'</p>
                                 </div>';
