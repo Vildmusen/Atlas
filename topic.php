@@ -41,12 +41,7 @@ if ($object['p_id']){
         if(isset($_SESSION['u_id'])){
             echo '
             <div class="link_holder">
-                <div class="container" id="link">
-                    <a class="dropdown-item" id="answer_button" href="create.php">Skapa ny fråga</a>
-                </div>
-                <div class="container" id="link">
-                    <a class="dropdown-item" id="answer_button" href="topic.php?id='.$id.'#bottomOfPage">Svara på fråga</a>
-                </div>
+                    <button id="mode_button"><a class="dropdown-item" id="create_button" href="topic.php?id='.$id.'&c_id='.$location.'#bottomOfPage">Svara på fråga</a></button>
             </div>';
         }
     ?>

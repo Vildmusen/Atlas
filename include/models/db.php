@@ -54,9 +54,15 @@ function getuser($id=""){
 }
 
 function getpost($location){
-    $query = "SELECT * FROM post WHERE l_id='$location'";
+    $query = "SELECT * FROM post WHERE l_id='$location' ORDER BY p_id DESC";
     return connect()->query($query);
 }
+
+function getpostvote($location){
+    $query = "SELECT * FROM post WHERE l_id='$location' ORDER BY rating DESC";
+    return connect()->query($query);
+}
+
 function getArchivedPost($location){
     $sql = "SELECT * FROM archived_post WHERE l_id='$location'";
     return connect()->query($sql);

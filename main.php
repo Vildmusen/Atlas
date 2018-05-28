@@ -19,19 +19,25 @@ if (isset($_SESSION['u_id'])){
 ?>
 <body onload="setBackground(<?php echo $_GET['c_id']; ?>)">
 
-    <?php
-        if(isset($_SESSION['u_id'])){
-            echo '
-                <div class="container" id="create_link">
-                    <a class="dropdown-item" id="create_button" href="create.php">Skapa fråga</a>
-                </div>';
-        }
-    ?>
-
     <div class="container" id="topic_wrapper">
 
         <?php
+            echo '
+                <div id="mode_selector">
+                    <button id="mode_button"><a class="dropdown-item" id="create_button" href="main.php?c_id='.$_GET['c_id'].'&mode=new">Senaste</a></button>
+                    <button id="mode_button"><a class="dropdown-item" id="create_button" href="main.php?c_id='.$_GET['c_id'].'&mode=high">Högst rating</a></button>
+                '; 
+
+                if(isset($_SESSION['u_id'])){
+                    echo '
+                        <button id="mode_button"><a class="dropdown-item" id="create_button" href="create.php">Skapa fråga</a></button>';
+                } 
+            echo '</div>';
+        ?>
+
+        <?php
         $oldPosts = checkDateOfPosts();
+
         while ($row = $oldPosts->fetch_assoc())
         {
             if ($row['p_id'] == $row['parent_id']){
@@ -47,7 +53,19 @@ if (isset($_SESSION['u_id'])){
                 deleteEntry($row['p_id']);
             }
         }
-        $results = getpost($location);
+
+        if(isset($_GET['mode'])){
+            $mode = $_GET['mode'];
+        } else {
+            $mode = "new";
+        }
+
+        if($mode == "new") {
+            $results = getpost($location);
+        } else if ($mode == "high") {
+            $results = getpostvote($location);
+        }
+
         while ($row = $results->fetch_assoc()) {
             if($row['p_id'] == $row['parent_id']){
                 echo

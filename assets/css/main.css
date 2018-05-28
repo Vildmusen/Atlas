@@ -26,6 +26,34 @@
     padding-top:10px;
 }
 
+    #mode_selector {
+        position: fixed;
+        right: 30px;
+        top: 130px;
+        width: 130px;
+        height: 60px;
+        z-index: 10312;
+    }
+
+        #mode_button {
+            width: 120px;
+            height: 32px;
+            background:rgb(151, 190, 187);
+            border: none;
+            border-left: 3px solid #343a40;
+            border-right: 3px solid #343a40;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            z-index: 100;
+            cursor: pointer;
+            padding-bottom: 5px;
+        }
+
+        #mode_button:hover {
+            color: #fff;
+            background: #343a40;
+        }
+
     #topic_wrapper h3 {
         padding: 10px 0 0 10px;
         margin:0;
@@ -57,6 +85,7 @@
         background:rgb(151, 190, 187);
         border-radius: 5px;
     }
+
     #archived {
         background:rgb(128, 140, 149);
     }
