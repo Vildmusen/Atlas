@@ -151,11 +151,11 @@ function allowedToVote($u_id, $post_id, $val){
         if($val != $vote['vote_value']){
             $sql = "UPDATE rating SET vote_value = '$val' WHERE u_id = '$u_id' AND p_id = '$post_id'";
             connect()->query($sql);
-            return "changed";
+            return $val['vote_value']+$val; // changed
         }
-        return "false";
+        return (-2); // false
     } else {
-        return "new";
+        return 2; // new
     }
 }
 
@@ -170,6 +170,12 @@ function saveVote($u_id, $post_id, $post_rating, $val){
         connect()->query($sql);
     }
 }
+// function updateUserRating($id, $value) {
+//     $sql = "UPDATE ...";
+// }
+// function getUserRating($id) {
+//     $sql = "SELECT rating FROM user";
+// }
 
 function reportPost(){
   $connection = connect();

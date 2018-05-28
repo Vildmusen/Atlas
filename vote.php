@@ -13,30 +13,31 @@ if(!(isset($_SESSION["u_id"]))){
         $user = $_SESSION["u_id"];
         $post_id = $_GET['p_id'];
         $val = $_GET['val'];
-        
+
         if($val == "true"){
             $val = 1;
         } else {
             $val = -1;
         }
-        
+
         $stmt = allowedToVote($user, $post_id, $val);
         echo $stmt;
 
-        if($stmt != "false"){
-            if($stmt == "changed"){
+        if($stmt > -2){
+            if($stmt < 2){
                 if($val == 1){
-                    $temp = 2;
+                    $temp = $stmt-$val;
                 } else {
-                    $temp = -2;
+                    $temp = $stmt-$val;
                 }
             } else {
                 $temp = $val;
             }
 
-            ratePost($post_id, $temp);
-            saveVote($user, $post_id, getPostRating($post_id), $val);
-            
+            ratePost($post_id, $val);
+            saveVote($user, $post_id, getPostRating($post_id), $temp);
+
+
         }
 
     }
