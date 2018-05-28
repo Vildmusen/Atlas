@@ -71,9 +71,8 @@ if (isset($_SESSION['u_id'])){
                 echo
                 '<div class="topic">
                     <div class="'.decideTier(getuser($row['u_id'])['status']).'">';
-                if(isset($_SESSION['admin'])){ echo '<div id="delete_post"></div>'; }
+                    if(isset($_SESSION['admin'])){ echo '<a href="delete_post.php?p_id='.$row['p_id'].'"><div id="delete_post"></div></a>'; }
                 echo'
-
                         <a href="topic.php?id='.$row['parent_id'].'&c_id='.$location.'" id="topic_link">
                             <div class="breadtext">
                                 <h3> '.$row['title'].'</h3>
