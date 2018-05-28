@@ -21,7 +21,6 @@ if(!(isset($_SESSION["u_id"]))){
         }
 
         $stmt = allowedToVote($user, $post_id, $val);
-        echo $stmt;
 
         if($stmt > -2){
             if($stmt < 2){
@@ -36,10 +35,10 @@ if(!(isset($_SESSION["u_id"]))){
 
             ratePost($post_id, $val);
             saveVote($user, $post_id, getPostRating($post_id), $temp);
-            updateUserStatus($user,getUserStatus($user)+5*$val);
-
+            updateUserStatus($user,getUserStatus($user)+(5*$val));
+            $p_id_user = getpostfromid($post_id)->fetch_assoc();
+            updateUserStatus($p_id_user['u_id'],getUserStatus($p_id_user['u_id'])+$val);
         }
-
     }
 }
 

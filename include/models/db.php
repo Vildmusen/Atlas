@@ -175,7 +175,7 @@ function updateUserStatus($id, $value) {
     connect()->query($sql);
 }
 function getUserStatus($id) {
-    $sql = "SELECT status FROM user";
+    $sql = "SELECT status FROM user WHERE u_id = '$id'";
     $result = connect()->query($sql);
     $val = $result->fetch_assoc();
     return $val['status'];
