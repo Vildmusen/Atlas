@@ -8,7 +8,7 @@
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 
-    <a class="navbar-brand" href="main.php">Atlas</a>
+    <a class="navbar-brand" href="main.php?c_id=1">Atlas</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" onclick="show_hide_drop('location_dropdown');">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -19,7 +19,7 @@
                 <a class="nav-link" href="index.php">Hem</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="main.php">Utforska</a>
+                <a class="nav-link" href="main.php?c_id=1">Utforska</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="omoss.php">Om oss</a>
@@ -51,7 +51,10 @@
             <?php
 
                 $city = getcity($location);
-                echo "<h2>".$city['city']."</h2>";
+                echo "
+                    <a href='main.php?c_id=".$location."' id='nostyle_link'>
+                        <h2>".$city['city']."</h2>
+                    </a>";
 
             ?>
         </div>
