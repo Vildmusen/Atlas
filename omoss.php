@@ -12,8 +12,8 @@
                             Atlas är tjänsten som låter dig utforska Sverige!
                             Tjänsten erbjuder dig insikt i hur du bäst skall uppleva Sveriges många olika städer och alla deras unika aktiviteter.
                         </p>
+                        <div class="container" id="terms_cons"><a href="termsandcons.php">Terms and conditions</a></div>
                     </div>
-            <div class="container" id="terms_cons"><a href="termsandcons.php">Terms and conditions</a></div>
     </main>
 </body>
 </html>

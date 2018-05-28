@@ -1,5 +1,6 @@
 body{
     background: rgb(227, 240, 239);
+    background-image: url("../../assets/img/globe.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -72,7 +73,7 @@ textarea {
             color: #fff;
             background: #343a40;
         }
-       
+
     #location_list{
         display: none;
         width: 398px;
@@ -83,8 +84,7 @@ textarea {
         border: 1px solid #343a40;
         border-top: 0;
         border-bottom-right-radius: 5px;
-        border-bottom-left-radius: 5px; 
+        border-bottom-left-radius: 5px;
         background:rgb(151, 190, 187);
         z-index: 10;
     }
-
