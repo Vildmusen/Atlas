@@ -10,20 +10,21 @@ include 'include/views/nav-no-city.php';
         <h3> Anmälda inlägg </h3>
         <?php
         $results = showReportedPost();
+
         while ($row = $results->fetch_assoc()) {
             if($row['p_id'] == $row['parent_id']){
                 echo
                 '<div class="topic">
                 <div class="'.decideTier(getuser($row['u_id'])['status']).'">';
-                if(isset($_SESSION['admin'])){ echo '<a href="delete_post.php?p_id='.$row['p_id'].'"><div id="delete_post"></div></a><a href="delete_user.php?u_id='.$row['u_id'].'"><div id="delete_user"></div></a>'; }
+                if(isset($_SESSION['admin'])){ echo '<a href="delete_post.php?p_id='.$row['p_id'].'&from=admin"><div id="delete_post"></div></a><a href="delete_user.php?u_id='.$row['u_id'].'&from=admin"><div id="delete_user"></div></a>'; }
                 echo'
                 <div class="breadtext">
                 <h3> '.$row['title'].'</h3>
                 <p> '.$row['description'].'</p>
                 </div>
                 <div class="creator"><h4>'.getuser($row['u_id'])['name'].' : '.showTier(getuser($row['u_id'])['status']).'</h4></div>
-                <div class="comment_holder"><div class="comment_icon"></div><h4>'.getTotalComments($row['parent_id']).'</h4></div>';
-                echo '<div class="timestamp"><h4>'.$row['date'].'</h4></div>
+                <div class="comment_holder"><div class="comment_icon"></div><h4>'.getTotalComments($row['parent_id']).'</h4></div>
+                <div class="timestamp"><h4>'.$row['date'].'</h4></div>
                 </div>
                 </div>';
             }
@@ -44,8 +45,8 @@ include 'include/views/nav-no-city.php';
                     echo getReportTitle($type).", anmält ".$value." gånger.";
                 }
             }
-            //vad har jag gjort det är för varmt snälla hjälp mig 
         }
+        //vad har jag gjort det är för varmt snälla hjälp mig
         ?>
     </div>
     <!-- </main> -->

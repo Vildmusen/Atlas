@@ -24,7 +24,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="omoss.php">Om oss</a>
             </li>
+            
             <?php
+                if(isset($_SESSION['admin'])){
+                    echo '
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin.php">Admin</a>
+                            </li>';
+                }
                 if (isset($_SESSION["u_id"])){
                     echo '
                         <li class="nav-item">
@@ -42,6 +49,7 @@
                 </li>
             </ul>';
             }
+            
             ?>
     </div>
 </nav>

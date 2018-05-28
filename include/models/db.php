@@ -21,10 +21,11 @@ function makeUser($salt){
     $name = mysqli_real_escape_string($connection, $_POST["name"]);
     $mail = mysqli_real_escape_string($connection, $_POST["mail"]);
     $city = mysqli_real_escape_string($connection, $_POST["city"]); //behövs detta?
+    $admin = 0;
     $status = 0;
 
-    $sql = "INSERT INTO user (name, mail, hash_pass, salt, hometown, status)
-    VALUES ('$name', '$mail', '$hashed_pass', '$salt', '$city', '$status') ";
+    $sql = "INSERT INTO user (name, mail, hash_pass, salt, hometown, status, admin)
+    VALUES ('$name', '$mail', '$hashed_pass', '$salt', '$city', '$status', '$admin') ";
     $stmt = $connection->query($sql);
     return $stmt;
 }
