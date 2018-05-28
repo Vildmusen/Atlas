@@ -78,6 +78,7 @@
     }
 
     .topic {
+        position: relative;
         min-width: 500px;
         max-width: 700px;
         width: 80%;
@@ -86,9 +87,37 @@
         border-radius: 5px;
     }
 
+        #delete_post{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 50px;
+            width: 50px;
+            margin-left: -25px;
+            margin-top: -25px;
+            background-image: url("../img/AdminPower.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.4;
+        }
+
+        #delete_post:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+
     #archived {
         background:rgb(128, 140, 149);
     }
+
+        .status-0 {
+            width: 100%;
+            overflow: hidden;
+            border-left: 3px solid red;
+            border-right: 3px solid red;
+            border-radius: 5px;
+            opacity: 0.8;
+        }
 
         .status0 {
             width: 100%;
@@ -212,8 +241,8 @@
         width: 300px;
         height: 300px;
         float: left;
-    }    
-    
+    }
+
     #show_map {
         width: 90px;
         height: 30px;

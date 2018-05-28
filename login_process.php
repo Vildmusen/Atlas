@@ -17,6 +17,7 @@ if (!verify($assoc)){
             $id = $rows['u_id'];
             $name = $rows['name'];
             $town = $rows['hometown'];
+            $admin = $rows['admin'];
             $bool = true;
         }
     }
@@ -24,6 +25,9 @@ if (!verify($assoc)){
         if (sha1($_POST['pass'].$login_salt) === $login_hash){
             $_SESSION["u_id"] = $id;
             $_SESSION["name"] = $name;
+            if($admin){
+              $_SESSION['admin'] = true;
+            }
             header("Location: main.php?c_id=".$town);
         } else {
             $_SESSION['error'] = "Wrong password.";
