@@ -8,6 +8,7 @@ $assoc['text'] = $_POST['description'];
 if (!verify($assoc)){
     header("Location: index.php");
 } else {
+    $city = $_POST['loc'];
     if ($_POST['type'] == "thread"){
         echo "creating thread";
         createPost();
@@ -16,11 +17,11 @@ if (!verify($assoc)){
         $tempID = $maxId['id'];
         echo $tempID;
         updatePost($tempID);
-        $location = "topic.php?id=$tempID";
+        $location = "topic.php?id=$tempID&c_id=$city";
     } else {
         $tempID = $_POST['id'];
         createPost($tempID);
-        $location = "topic.php?id=$tempID#bottomOfPage";
+        $location = "topic.php?id=$tempID&c_id=$city#bottomOfPage";
     }
     header("Location: $location");
 }
