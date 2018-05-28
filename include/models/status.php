@@ -21,6 +21,10 @@ function showTier($rating){
     else if ($tier < 0) {
         $tier = 0;
     }
+    if($tier == -0){
+        return "Dansk";
+    }
+
     if ($tier == 0){
         return "Småsvensk";
     }
