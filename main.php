@@ -70,6 +70,7 @@ if (isset($_SESSION['u_id'])){
             if($row['p_id'] == $row['parent_id']){
                 echo
                 '<div class="topic">
+                    <a name="'.$row["p_id"].'"></a>
                     <div class="'.decideTier(getuser($row['u_id'])['status']).'">';
                 if(isset($_SESSION['admin'])){ echo '<div id="delete_post"></div>'; }
                 echo'
@@ -103,6 +104,7 @@ if (isset($_SESSION['u_id'])){
             if($row['p_id'] == $row['parent_id']){
                 echo
                 '<div class="topic" id="archived">
+                    <a name="'.$row["p_id"].'"></a>
                     <div class="'.decideTier(getuser($row['u_id'])['status']).'">
                         <a href="topic.php?id='.$row['parent_id'].'&c_id='.$location.'" id="topic_link">
                             <div class="breadtext">
