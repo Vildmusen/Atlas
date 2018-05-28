@@ -221,4 +221,9 @@ function deleteEntry($post){
     $sql = "DELETE FROM post WHERE p_id = '$post'";
     $result = connect()->query($sql);
 }
+
+function deleteUser($user){
+    $sql = "DELETE FROM user WHERE u_id = '$user'";
+    $result = connect()->query($sql);
+}
 ?>
