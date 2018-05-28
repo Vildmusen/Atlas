@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT);
+
 include 'include/bootstrap.php';
 if(isset($_SESSION["u_id"])){
     header("Header: index.php");
@@ -6,8 +9,9 @@ if(isset($_SESSION["u_id"])){
 $assoc['pass'] = $_POST['pass'];
 $assoc['mail'] = $_POST['mail'];
 if (!verify($assoc)){
-    header("Header: login.php");
+    $location = "Location: login.php";
 } else {
+    $location = "Location: login.php";
     $stmt = getuser();
     $bool = false;
     while ($rows = $stmt->fetch_assoc()){
@@ -28,14 +32,16 @@ if (!verify($assoc)){
             if($admin){
               $_SESSION['admin'] = true;
             }
-            header("Location: main.php?c_id=".$town);
+            echo '<h1>Inloggad.</h1>';
+            $location = "Location: main.php?c_id=".$town;
         } else {
-            $_SESSION['error'] = "Wrong password.";
-            header("Location: login.php");
+            echo '<h1>Mail eller lösenord matchade inte.</h1>';
+            $location = "Refresh: 2, URL=login.php";
         }
     } else {
-        echo '<h1>Password or mail didn'."'".'t match.</h1>';
-        header("Refresh: 2, URL=login.php");
+        echo '<h1>Mail eller lösenord matchade inte.</h1>';
+        $location = "Refresh: 2, URL=login.php";
     }
 }
+header($location);
 ?>

@@ -253,6 +253,7 @@
     position: fixed;
     top: 56px;
     left: -300px;
+    z-index: 50524;
 }
 
     #googleMap{
