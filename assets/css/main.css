@@ -153,19 +153,47 @@
 
 #google_wrapper{
     position: fixed;
-    left: 10%;
-    top: 20%;
-    height: 250px;
-    width: 120px;
+    top: 56px;
+    left: -300px;
 }
 
-#googleMap{
-    background:yellow;
-}         
+    #googleMap{
+        width: 300px;
+        height: 300px;
+        float: left;
+    }    
+    
+    #show_map {
+        width: 90px;
+        height: 30px;
+        border-bottom-right-radius: 5px;
+        background: #1f567c;
+        margin-left: 0px;
+        float: right;
+        cursor: pointer;
+    }
+
+    #show_map p {
+        font-size: 18px;
+        color: white;
+        margin: 0;
+        margin-left: 10px;
+    }
+
+    #arrow_right {
+        height: 30px;
+        width: 30px;
+        margin-right: 5px;
+        background-image: url("../img/dropdown_arrow.png");
+        transform: rotate(270deg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        float: right;
+    }
 
 #weather_wrapper {
     position: fixed;
-    right: -290px;
+    right: -315px;
     top: 56px;
     width: 340px;
     height: 300px;
@@ -173,11 +201,11 @@
 }
 
     #show_weather {
-        width: 115px;
+        width: 90px;
         height: 30px;
         border-bottom-left-radius: 5px;
         background: #1f567c;
-        margin-left: -65px;
+        margin-left: -64px;
         float: left;
         cursor: pointer;
     }

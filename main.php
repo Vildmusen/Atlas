@@ -2,6 +2,7 @@
 
 <html>
 <?php
+
 include 'include/bootstrap.php';
 include 'include/views/nav.php';
 include 'include/views/weatherandmap.php';
