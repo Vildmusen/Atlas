@@ -16,9 +16,17 @@
     margin-bottom: 20px;
 }
 
+#about_box h2{
+  text-align: center;
+}
+
+#about_box p{
+  text-align: center;
+}
+
 #terms_cons {
-    margin-left:300px;
-    width: 40%        
+    margin-left:40%;
+    width: 40%;
 }
 
 #terms_cons a {

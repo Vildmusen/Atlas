@@ -8,9 +8,12 @@
     <main role="main" class="container" id="content">
             <div class="container" id="about_box">
                         <h2>Om oss</h2>
-                        <p>Här hittar du information om oss.</p>
+                        <p>
+                            Atlas är tjänsten som låter dig utforska Sverige!
+                            Tjänsten erbjuder dig insikt i hur du bäst skall uppleva Sveriges många olika städer och alla deras unika aktiviteter.
+                        </p>
                     </div>
-            <div class="container" id="terms_cons"><a href="termsandcons.php">Terms and conditions</a></div>  
-    </main>  
+            <div class="container" id="terms_cons"><a href="termsandcons.php">Terms and conditions</a></div>
+    </main>
 </body>
 </html>
