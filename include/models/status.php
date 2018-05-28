@@ -22,7 +22,7 @@ function showTier($rating){
         $tier = 0;
     }
     if ($tier == 0){
-        return "pleb";
+        return "Småsvensk";
     }
     if ($tier == 1){
         return "Lagomsvensk";
