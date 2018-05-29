@@ -22,7 +22,7 @@ include 'include/views/nav-no-city.php';
                 <h3> '.$row['title'].'</h3>
                 <p> '.$row['description'].'</p>
                 </div>
-                <div class="creator"><h4>'.getuser($row['u_id'])['name'].' : '.showTier(getuser($row['u_id'])['status']).'</h4></div>
+                <div class="creator"><h4>'.getuser((getpostfromid($row['p_id'])->fetch_assoc())['u_id'])['name'].' : '.showTier(getuser((getpostfromid($row['p_id'])->fetch_assoc())['u_id'])['status']).'</h4></div>
                 <div class="comment_holder"><div class="comment_icon"></div><h4>'.getTotalComments($row['parent_id']).'</h4></div>
                 <div class="timestamp"><h4>'.$row['date'].'</h4></div>
                 </div>
