@@ -6,6 +6,7 @@ if(isset($_SESSION["u_id"])){
 $assoc['pass'] = $_POST['pass'];
 $assoc['pass'] = $_POST['pass2'];
 $assoc['mail'] = $_POST['mail'];
+$assoc['text'] = $_POST['name'];
 if (!verify($assoc)){
     header("Location: register.php");
 } else {
